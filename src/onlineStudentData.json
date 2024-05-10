@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Jan",
+    "student": "130"
+  },
+  {
+    "label": "Feb",
+    "student": "232"
+  },
+  {
+    "label": "Mar",
+    "student": "560"
+  },
+  {
+    "label": "Apr",
+    "student": "450"
+  },
+  {
+    "label": "May",
+    "student": "339"
+  },
+  {
+    "label": "Jun",
+    "student": "640"
+  },
+  {
+    "label": "Jul",
+    "student": "830"
+  },
+  {
+    "label": "Aug",
+    "student": "965"
+  },
+  {
+    "label": "Sep",
+    "student": "1003"
+  }
+]
