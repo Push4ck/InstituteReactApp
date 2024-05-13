@@ -5,16 +5,19 @@
 ### Dashboard
 
 ### Class Room
-* Add Class Room
-* Edit Class Room
+
+- Add Class Room
+- Edit Class Room
 
 ### Student
-* Add Student
-* Edit Student
+
+- Add Student
+- Edit Student
 
 ### Payment
-* Fees
-* Transport
-* Hostel
+
+- Fees
+- Transport
+- Hostel
 
 ### Support
