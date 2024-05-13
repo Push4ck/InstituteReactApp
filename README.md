@@ -1,8 +1,20 @@
-# React + Vite
+# admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Folder Structure
 
-Currently, two official plugins are available:
+### Dashboard
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Class Room
+* Add Class Room
+* Edit Class Room
+
+### Student
+* Add Student
+* Edit Student
+
+### Payment
+* Fees
+* Transport
+* Hostel
+
+### Support
