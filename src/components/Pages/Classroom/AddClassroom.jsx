@@ -1,10 +1,17 @@
+// hooks
 import { useEffect, useState } from "react";
+
+// prop type
 import PropTypes from "prop-types";
-// import { MdOutlineReportGmailerrorred } from "react-icons/md";
+
+// classroom image
 import MainImg from "../../../assets/Classroom/AddClassroomForm.svg";
+
+// error and success modals
 import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
 
+// top progress bar
 const AddClassroom = ({ setProgress }) => {
   useEffect(() => {
     setProgress(40);
@@ -13,6 +20,7 @@ const AddClassroom = ({ setProgress }) => {
     }, 300);
   }, [setProgress]);
 
+  // error and success popups
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
@@ -20,7 +28,7 @@ const AddClassroom = ({ setProgress }) => {
   const [formData, setFormData] = useState({
     classRoomName: "",
     class: "",
-    classRoomMode: "",
+    classRoomType: "",
     price: "",
   });
 
@@ -28,17 +36,17 @@ const AddClassroom = ({ setProgress }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateFormData(formData)) {
-      setShowSuccessPopup(true);
+      setShowSuccessPopup(true); // show success popup
     } else {
-      setShowErrorPopup(true);
+      setShowErrorPopup(true); // show error popup
     }
   };
 
   // validation
   const validateFormData = (formData) => {
-    const { classRoomName, class: className, classRoomMode, price } = formData;
+    const { classRoomName, class: className, classRoomType, price } = formData;
     // validating
-    if (!classRoomName || !className || !classRoomMode || !price) {
+    if (!classRoomName || !className || !classRoomType || !price) {
       return false; // show error popup
     } else {
       console.log(formData);
@@ -58,118 +66,152 @@ const AddClassroom = ({ setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex items-center dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 lg:px-20 py-2 xs:px-2">
-        {/* <div>
-          <h1 className="text-xl font-bold">Add Class Room</h1>
-        </div> */}
+      <div className="w-full min-h-screen flex justify-between items-center dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 px-4 gap-10 xl:py-10">
+        <div className="flex items-center xl:gap-10 xs:gap-0">
+          <div className="space-y-10">
+            {/* head text */}
+            <div className="space-y-4 md:ml-10 xs:ml-0">
+              <p className="text-slate-500 text-lg">Say hello</p>
+              <h1 className="dark:text-white text-6xl font-bold">
+                Let's Work <span className="text-sky-500">Together</span>.
+              </h1>
+              <p className="dark:text-white text-lg font-medium">
+                I'd love to meet up with you to discuss your venture, and
+                potential collaborations.
+              </p>
+            </div>
 
-        {/* form */}
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col w-full gap-8 p-10 my-10"
-        >
-          {/* class room name */}
-          <div className="space-y-1">
-            <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-              Class Room Name: <span className="text-red-500 text-base">*</span>
-            </h1>
+            {/* form */}
+            <div className="md:mx-10 xs:mx-0">
+              <form
+                class="needs-validation w-full space-y-5"
+                novalidate
+                onSubmit={handleSubmit}
+              >
+                {/* classroom name */}
+                <div class="">
+                  <label
+                    for="validationCustom03"
+                    class="form-label dark:text-white"
+                  >
+                    ClassRoom Name
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom03"
+                    value={formData.classRoomName}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        classRoomName: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
 
-            <input
-              type="text"
-              name="classRoomName"
-              value={formData.classRoomName}
-              onChange={(e) =>
-                setFormData({ ...formData, classRoomName: e.target.value })
-              }
-              className="w-full rounded-md h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-              placeholder="class room name"
+                {/* class */}
+                <div class="">
+                  <label
+                    for="validationCustom04"
+                    class="form-label dark:text-white"
+                  >
+                    Class
+                  </label>
+                  <select
+                    class="form-select cursor-pointer"
+                    id="validationCustom04"
+                    value={formData.class}
+                    onChange={(e) =>
+                      setFormData({ ...formData, class: e.target.value })
+                    }
+                    required
+                  >
+                    <option selected disabled value="">
+                      Choose...
+                    </option>
+                    <option>10th</option>
+                    <option>11th</option>
+                    <option>12th</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+
+                {/* classroom type */}
+                <div class="">
+                  <label
+                    for="validationCustom04"
+                    class="form-label dark:text-white"
+                  >
+                    ClassRoom Type
+                  </label>
+                  <select
+                    class="form-select cursor-pointer"
+                    id="validationCustom04"
+                    value={formData.classRoomType}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        classRoomType: e.target.value,
+                      })
+                    }
+                    required
+                  >
+                    <option selected disabled value="">
+                      Choose...
+                    </option>
+                    <option>Online</option>
+                    <option>Offline</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+
+                {/* price */}
+                <div class="">
+                  <label
+                    for="validationCustom05"
+                    class="form-label dark:text-white"
+                  >
+                    Price
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="validationCustom05"
+                    value={formData.price}
+                    onChange={(e) =>
+                      setFormData({ ...formData, price: e.target.value })
+                    }
+                    required
+                  />
+                  <div class="invalid-feedback">Please provide a amount.</div>
+                </div>
+
+                {/* submit button */}
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">
+                    Submit form
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* form page image */}
+          <div>
+            <img
+              src={MainImg}
+              alt=""
+              className="xl:block w-[600px] xxl:w-[1000px] xs:hidden"
             />
           </div>
-
-          {/* class */}
-          <div className="space-y-1">
-            <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-              Class: <span className="text-red-500 text-base">*</span>
-            </h1>
-
-            {/* select class */}
-            <select
-              name="class"
-              value={formData.class}
-              onChange={(e) =>
-                setFormData({ ...formData, class: e.target.value })
-              }
-              className="rounded-md w-full h-12 px-2 border-2 focus:border-2 focus:border-sky-500 cursor-pointer"
-            >
-              {/* class options */}
-              <option value="">Select Class</option>
-              <option value="8th">8th</option>
-              <option value="9th">9th</option>
-              <option value="10th">10th</option>
-              <option value="11th">11th</option>
-              <option value="12th">12th</option>
-            </select>
-          </div>
-
-          {/* class room mode */}
-          <div className="space-y-1">
-            <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-              Class Room Mode: <span className="text-red-500 text-base">*</span>
-            </h1>
-
-            <select
-              name="classRoomMode"
-              value={formData.classRoomMode}
-              onChange={(e) =>
-                setFormData({ ...formData, classRoomMode: e.target.value })
-              }
-              className="rounded-md w-full h-12 px-2 border-2 focus:border-2 focus:border-sky-500 cursor-pointer"
-            >
-              <option value="">Select Mode</option>
-              <option value="Online">Online</option>
-              <option value="Offline">Offline</option>
-            </select>
-          </div>
-
-          {/* price */}
-          <div className="space-y-1">
-            <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-              Price: <span className="text-red-500 text-base">*</span>
-            </h1>
-
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
-              onChange={(e) =>
-                setFormData({ ...formData, price: e.target.value })
-              }
-              className="rounded-md w-full h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-              placeholder="10000"
-            />
-          </div>
-
-          {/* submit button */}
-          <button
-            type="submit"
-            className="bg-slate-900 hover:bg-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg flex items-center justify-center xs:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-          >
-            Submit
-          </button>
-        </form>
-
-        {/* form page image */}
-        <div>
-          <img src={MainImg} alt="" className="w-[900px]" />
         </div>
-
-        {/* <div className="flex items-center gap-2">
-          <MdOutlineReportGmailerrorred />
-          <h1>
-            Please fill all fields that have an asterisk (
-            <span className="text-red-500">*</span>).
-          </h1>
-        </div> */}
 
         {/* Error Popup */}
         {showErrorPopup && <ErrorPopup onClose={handleCloseErrorPopup} />}

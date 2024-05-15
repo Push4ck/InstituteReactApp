@@ -153,14 +153,14 @@ const AddStudent = ({ setProgress }) => {
           className="flex flex-col w-full gap-8 p-10"
         >
           {/* personal details */}
-          <h1 className="text-slate-900 font-semibold text-center xs:text-xl lg:text-2xl dark:text-white">
+          <h1 className="text-slate-900 bg-slate-200 dark:bg-slate-700 font-semibold text-center xs:text-xl lg:text-2xl dark:text-white">
             Personal Details
           </h1>
 
           {/* student name */}
           <div className="space-y-1">
             {/* heading */}
-            <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
+            <h1 className="text-slate-900 font-small xs:text-lg lg:text-lg dark:text-white">
               Student Name <span className="text-red-500 text-base">*</span>
             </h1>
 
@@ -174,7 +174,7 @@ const AddStudent = ({ setProgress }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, studentFirstName: e.target.value })
                 }
-                className="w-full rounded-md h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
+                className="w-full rounded-md h-10 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
                 placeholder="First name"
               />
 
