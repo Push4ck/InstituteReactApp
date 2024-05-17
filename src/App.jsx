@@ -30,12 +30,12 @@ const App = () => {
     <Router>
       <div className="flex xl:flex-row xs:flex-col">
         {/* sidebar */}
-        <div className="xl:sticky">
+        <div className="xl:fixed">
           <SideBar />
         </div>
 
         {/* main content */}
-        <div className="w-full">
+        <div className="w-full xl:ml-64 xs:ml-0">
           {/* top loading bar */}
           <LoadingBar
             color="#0ea5e9"

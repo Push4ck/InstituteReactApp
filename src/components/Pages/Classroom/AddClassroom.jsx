@@ -107,6 +107,7 @@ const AddClassroom = ({ setProgress }) => {
                         classRoomName: e.target.value,
                       })
                     }
+                    placeholder="ClassRoom Name"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -188,6 +189,7 @@ const AddClassroom = ({ setProgress }) => {
                     onChange={(e) =>
                       setFormData({ ...formData, price: e.target.value })
                     }
+                    placeholder="30000"
                     required
                   />
                   <div class="invalid-feedback">Please provide a amount.</div>

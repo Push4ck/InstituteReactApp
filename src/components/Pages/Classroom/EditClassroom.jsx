@@ -15,23 +15,34 @@ const EditClassroom = () => {
 
   return (
     <>
-      <div>
-        <h1 className="text-xl font-bold">Classroom Data</h1>
-        <table>
+      <div className="w-full min-h-screen dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 px-4 gap-10 xl:py-10">
+        <table class="table table-striped">
           <thead>
             <tr>
-              <th>Class Room Name</th>
-              <th>Class</th>
-              <th>Class Room Mode</th>
-              <th>Price</th>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{classroomData.classRoomName}</td>
-              <td>{classroomData.class}</td>
-              <td>{classroomData.classRoomMode}</td>
-              <td>{classroomData.price}</td>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
             </tr>
           </tbody>
         </table>

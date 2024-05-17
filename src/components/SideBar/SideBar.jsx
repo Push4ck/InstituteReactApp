@@ -46,7 +46,10 @@ const SideBar = () => {
   return (
     <>
       {/* hamburger sidebar for small screen devices */}
-      <div className="flex w-full justify-end dark:bg-gradient-to-tr dark:from-gray-900 dark:to-gray-800">
+      <div className="flex w-full justify-between items-center dark:bg-gradient-to-tr dark:from-gray-900 dark:to-gray-800 xs:h-14 xl:h-0">
+        <h1 className="xl:hidden xs:block m-2 text-xl dark:text-white">
+          Company Name
+        </h1>
         <button
           class="xl:hidden xs:block m-2 text-slate-950 dark:text-white text-3xl"
           type="button"
@@ -58,6 +61,7 @@ const SideBar = () => {
         </button>
       </div>
 
+      {/* sidebar for small screens */}
       <div
         class="offcanvas flex justify-between h-screen w-64 border-r-2 border-slate-700 md:w-auto xs:flex xl:hidden"
         data-bs-scroll="true"
@@ -126,7 +130,7 @@ const SideBar = () => {
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
                   <MdClass className="text-3xl block float-left" />
-                  <span className="text-lg font-medium">Class Room</span>
+                  <span className="text-lg font-medium">ClassRoom</span>
                 </NavLink>
                 {classroomOpen ? (
                   <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
@@ -321,7 +325,7 @@ const SideBar = () => {
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
                 >
                   <MdClass className="text-4xl block float-left" />
-                  <span className="text-lg font-bold">Class Room</span>
+                  <span className="text-lg font-bold">ClassRoom</span>
                 </NavLink>
                 {classroomOpen ? (
                   <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
