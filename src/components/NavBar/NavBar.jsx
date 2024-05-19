@@ -1,0 +1,47 @@
+import PropType from "prop-types";
+import { FaBell, FaShareAlt } from "react-icons/fa";
+import ChangeTheme from "../Theme/ChangeTheme";
+
+const NavBar = ({ pagename }) => {
+  return (
+    <>
+      <div className="w-full p-4">
+        <div className="flex items-center justify-between h-20">
+          {/* title */}
+          <div>
+            <h1 className="xs:text-lg xl:text-4xl font-bold text-slate-900 dark:text-white">
+              {pagename}
+            </h1>
+          </div>
+
+          {/* buttons */}
+          <div className="flex items-center xs:gap-3 xl:gap-4">
+            {/* theme */}
+            <div>
+              <ChangeTheme />
+            </div>
+
+            {/* notification */}
+            <div className="xs:text-lg xl:text-2xl rounded-full text-yellow-400 hover:text-yellow-500 cursor-pointer">
+              <FaBell />
+            </div>
+
+            {/* share */}
+            <div className="xs:text-lg xl:text-2xl rounded-full text-gray-400 hover:text-gray-500 cursor-pointer">
+              <FaShareAlt />
+            </div>
+          </div>
+        </div>
+
+        {/* separator */}
+        <div className="border-t-2 border-slate-500"></div>
+      </div>
+    </>
+  );
+};
+
+NavBar.PropType = {
+  PageName: PropType.string.isRequired,
+};
+
+export default NavBar;

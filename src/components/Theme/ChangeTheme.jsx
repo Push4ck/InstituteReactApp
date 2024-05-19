@@ -15,18 +15,18 @@ const ChangeTheme = () => {
 
   return (
     <button
-      className="flex items-center justify-center w-16 h-16 rounded-full bg-slate-500 dark:bg-gray-700 focus:outline-none transition-colors duration-300 ease-in-out"
+      className="flex items-center justify-center rounded-full transition-color duration-300"
       onClick={() => {
         setDarkMode(!darkMode);
       }}
     >
-      <div className="relative w-12 h-12 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center shadow-md transition duration-300 ease-in-out">
+      <div className="relative rounded-full flex items-center justify-center transition duration-300">
         {darkMode ? (
           // moon
-          <IoMoonSharp className="text-slate-500 dark:text-slate-300 text-2xl" />
+          <IoMoonSharp className="text-slate-500 dark:text-slate-300 xs:text-lg xl:text-2xl" />
         ) : (
           // sun
-          <IoSunny className="text-yellow-500 dark:text-yellow-300 text-2xl" />
+          <IoSunny className="text-yellow-500 dark:text-yellow-300 xs:text-lg xl:text-2xl" />
         )}
       </div>
     </button>

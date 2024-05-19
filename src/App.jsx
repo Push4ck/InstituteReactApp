@@ -1,3 +1,6 @@
+// navbar
+import NavBar from "./components/NavBar/NavBar";
+
 // top loading bar
 import LoadingBar from "react-top-loading-bar";
 
@@ -26,9 +29,14 @@ const App = () => {
   // top loading bar function
   const [progress, setProgress] = useState(0);
 
+  // navbar
+  const [pagename, setPagename] = useState((setPagename) => {
+    setPagename = { setPagename };
+  });
+
   return (
     <Router>
-      <div className="flex xl:flex-row xs:flex-col">
+      <div className="flex xl:flex-row xs:flex-col dark:bg-gradient-to-t dark:from-gray-900 dark:to-gray-800">
         {/* sidebar */}
         <div className="xl:fixed">
           <SideBar />
@@ -44,37 +52,75 @@ const App = () => {
             onLoaderFinished={() => setProgress(0)}
           />
 
+          {/* navbar */}
+          <NavBar pagename={pagename} />
+
           {/* routing */}
           <Routes>
             {/* home page */}
-            <Route path="/" element={<Home setProgress={setProgress} />} />
+            <Route
+              path="/"
+              element={
+                <Home setProgress={setProgress} setPagename={setPagename} />
+              }
+            />
+
             {/* add classroom page */}
             <Route
               path="/add-classroom"
-              element={<AddClassroom setProgress={setProgress} />}
+              element={
+                <AddClassroom
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
             />
+
             {/* edit classroom page */}
             <Route
               path="/edit-classroom"
-              element={<EditClassroom setProgress={setProgress} />}
+              element={
+                <EditClassroom
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
             />
+
             {/* add student page */}
             <Route
               path="/add-student"
-              element={<AddStudent setProgress={setProgress} />}
+              element={
+                <AddStudent
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
             />
+
             {/* payment page */}
             <Route
               path="/payment"
-              element={<Payment setProgress={setProgress} />}
+              element={
+                <Payment setProgress={setProgress} setPagename={setPagename} />
+              }
             />
+
             {/* support page */}
             <Route
               path="/support"
-              element={<Support setProgress={setProgress} />}
+              element={
+                <Support setProgress={setProgress} setPagename={setPagename} />
+              }
             />
+
             {/* 404 -- not found page */}
-            <Route path="*" element={<NotFound setProgress={setProgress} />} />
+            <Route
+              path="*"
+              element={
+                <NotFound setProgress={setProgress} setPagename={setPagename} />
+              }
+            />
           </Routes>
         </div>
       </div>

@@ -4,8 +4,9 @@ import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
 import Help from "../../../assets/Support/help-and-support.svg";
 
-const Support = ({ setProgress }) => {
+const Support = ({ setPagename, setProgress }) => {
   useEffect(() => {
+    setPagename("Support");
     setProgress(40);
     setTimeout(() => {
       setProgress(100);
@@ -56,7 +57,7 @@ const Support = ({ setProgress }) => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 lg:px-20 py-2 xs:px-2">
+    <div className="w-full min-h-screen flex items-center lg:px-20 py-2 xs:px-2">
       {/* form */}
       <form
         onSubmit={handleSubmit}
@@ -145,7 +146,7 @@ const Support = ({ setProgress }) => {
 
       {/* form page image */}
       <div>
-        <img src={Help} alt="" className="w-[900px]" />
+        <img src={Help} alt="" className="xs:hidden xl:flex w-[900px]" />
       </div>
 
       {/* Error Popup */}

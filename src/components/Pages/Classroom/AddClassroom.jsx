@@ -1,8 +1,11 @@
+// prop type
+import PropTypes from "prop-types";
+
 // hooks
 import { useEffect, useState } from "react";
 
-// prop type
-import PropTypes from "prop-types";
+// navbar
+// import NavBar from "../../NavBar/NavBar";
 
 // classroom image
 import MainImg from "../../../assets/Classroom/AddClassroomForm.svg";
@@ -12,13 +15,17 @@ import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
 
 // top progress bar
-const AddClassroom = ({ setProgress }) => {
+const AddClassroom = ({ setProgress, setPagename }) => {
   useEffect(() => {
     setProgress(40);
     setTimeout(() => {
       setProgress(100);
     }, 300);
   }, [setProgress]);
+
+  useEffect(() => {
+    setPagename("Add ClassRoom");
+  }, [setPagename]);
 
   // error and success popups
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -66,7 +73,10 @@ const AddClassroom = ({ setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex justify-between items-center dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 px-4 gap-10 xl:py-10">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10">
+        {/* navbar */}
+        {/* <NavBar PageName="Add ClassRoom" /> */}
+
         <div className="flex items-center xl:gap-10 xs:gap-0">
           <div className="space-y-10">
             {/* head text */}

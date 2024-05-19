@@ -13,7 +13,6 @@ import {
 import { PiStudentFill } from "react-icons/pi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
-import ChangeTheme from "../Theme/ChangeTheme";
 
 const SideBar = () => {
   // hamburger menu
@@ -46,7 +45,7 @@ const SideBar = () => {
   return (
     <>
       {/* hamburger sidebar for small screen devices */}
-      <div className="flex w-full justify-between items-center dark:bg-gradient-to-tr dark:from-gray-900 dark:to-gray-800 xs:h-14 xl:h-0">
+      <div className="flex w-full justify-between items-center xs:h-14 xl:h-0">
         <h1 className="xl:hidden xs:block m-2 text-xl dark:text-white">
           Company Name
         </h1>
@@ -63,37 +62,46 @@ const SideBar = () => {
 
       {/* sidebar for small screens */}
       <div
-        class="offcanvas flex justify-between h-screen w-64 border-r-2 border-slate-700 md:w-auto xs:flex xl:hidden"
+        class="offcanvas flex h-screen w-64 border-r-2 border-slate-700 p-0 md:w-auto xs:flex xl:hidden"
         data-bs-scroll="true"
         tabindex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        <div class="offcanvas-header dark:bg-slate-900 flex items-center justify-between gap-4">
+        {/* sidebar header */}
+        <div class="offcanvas-header justify-evenly p-2 dark:bg-slate-900 flex items-center">
           {/* company name */}
           <div
             class="offcanvas-title w-full"
             id="offcanvasWithBothOptionsLabel"
           >
-            <div className="inline-flex items-center justify-between w-full">
-              {/* text */}
-              <NavLink to="/">
-                <img
-                  src={Logo}
-                  alt="company_logo"
-                  className="border-4 border-slate-500 rounded-full w-20 object-cover"
-                />
-              </NavLink>
+            <div className="flex items-center justify-between w-full gap-2">
+              {/* image */}
+              <div>
+                <NavLink to="/">
+                  <img
+                    src={Logo}
+                    alt="company_logo"
+                    className="border-4 border-slate-500 rounded-full w-14 object-cover"
+                  />
+                </NavLink>
+              </div>
 
-              {/* theme toggle */}
-              <ChangeTheme />
+              {/* text */}
+              <div>
+                <NavLink to="/">
+                  <h1 className="text-xl text-slate-950 dark:text-white">
+                    Company Name
+                  </h1>
+                </NavLink>
+              </div>
             </div>
           </div>
 
           {/* sidebar close button */}
           <button
             type="button"
-            class="text-slate-950 dark:text-white text-3xl"
+            class="text-slate-950 dark:text-white text-xl"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
@@ -276,26 +284,35 @@ const SideBar = () => {
       </div>
 
       {/* sidebar for large screen devices */}
-      <div className="dark:bg-gray-900 h-screen p-4 pt-8 flex flex-col justify-between w-64 border-r-2 border-slate-700 xs:hidden xl:flex">
+      <div className="h-screen p-2 flex flex-col justify-between w-64 border-r-2 border-slate-700 xs:hidden xl:flex">
         {/* top */}
         <div className="">
           {/* head */}
-          <div className="inline-flex items-center justify-between w-full mb-10">
-            {/* text */}
-            <NavLink to="/">
-              {/* <h1 className="text-3xl font-bold text-slate-950 dark:text-white ml-4">
-            Logo
-          </h1> */}
+          <div className="mb-10 flex flex-col item-center">
+            <div className="flex items-center justify-between w-full h-24">
+              {/* image */}
+              <div>
+                <NavLink to="/">
+                  <img
+                    src={Logo}
+                    alt="company_logo"
+                    className="border-4 border-slate-500 rounded-full w-16 object-cover"
+                  />
+                </NavLink>
+              </div>
 
-              <img
-                src={Logo}
-                alt="company_logo"
-                className="border-4 border-slate-500 rounded-full w-28 object-cover"
-              />
-            </NavLink>
+              {/* text */}
+              <div>
+                <NavLink to="/">
+                  <h1 className="text-2xl text-slate-950 dark:text-white">
+                    Company Name
+                  </h1>
+                </NavLink>
+              </div>
+            </div>
 
-            {/* theme toggle */}
-            <ChangeTheme />
+            {/* separator */}
+            <div className="border-t-2 border-slate-500"></div>
           </div>
 
           {/* links */}
