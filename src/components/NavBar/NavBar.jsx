@@ -5,11 +5,11 @@ import ChangeTheme from "../Theme/ChangeTheme";
 const NavBar = ({ pagename }) => {
   return (
     <>
-      <div className="w-full p-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="w-full xs:px-2 xl:px-4 xl:py-6">
+        <div className="flex items-center justify-between xs:h-12 xl:h-20">
           {/* title */}
           <div>
-            <h1 className="xs:text-lg xl:text-4xl font-bold text-slate-900 dark:text-white">
+            <h1 className="xs:text-lg xl:text-4xl font-medium text-slate-900 dark:text-white">
               {pagename}
             </h1>
           </div>

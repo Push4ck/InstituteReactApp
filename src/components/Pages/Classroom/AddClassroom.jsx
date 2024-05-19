@@ -17,15 +17,12 @@ import SuccessPopup from "../../validation/SuccessPopup";
 // top progress bar
 const AddClassroom = ({ setProgress, setPagename }) => {
   useEffect(() => {
+    setPagename("Add ClassRoom");
     setProgress(40);
     setTimeout(() => {
       setProgress(100);
     }, 300);
-  }, [setProgress]);
-
-  useEffect(() => {
-    setPagename("Add ClassRoom");
-  }, [setPagename]);
+  }, [setPagename, setProgress]);
 
   // error and success popups
   const [showErrorPopup, setShowErrorPopup] = useState(false);

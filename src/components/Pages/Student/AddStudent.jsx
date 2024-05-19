@@ -5,13 +5,14 @@ import { FiUpload } from "react-icons/fi";
 import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
 
-const AddStudent = ({ setProgress }) => {
+const AddStudent = ({ setPagename, setProgress }) => {
   useEffect(() => {
+    setPagename("Add Student");
     setProgress(40);
     setTimeout(() => {
       setProgress(100);
     }, 300);
-  }, [setProgress]);
+  }, [setPagename, setProgress]);
 
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -141,19 +142,14 @@ const AddStudent = ({ setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 lg:px-20 py-2 xs:px-2">
-        {/* top */}
-        {/* <div>
-          <h1 className="text-xl font-bold">Add Student</h1>
-        </div> */}
-
+      <div className="w-full min-h-screen lg:px-20 py-2 xs:px-2">
         {/* form */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col w-full gap-8 p-10"
         >
           {/* personal details */}
-          <h1 className="text-slate-900 bg-slate-200 dark:bg-slate-700 font-semibold text-center xs:text-xl lg:text-2xl dark:text-white">
+          <h1 className="text-slate-900 font-semibold text-center xs:text-xl lg:text-2xl dark:text-white">
             Personal Details
           </h1>
 
@@ -721,15 +717,6 @@ const AddStudent = ({ setProgress }) => {
             Submit
           </button>
         </form>
-
-        {/* bottom */}
-        {/* <div className="flex items-center gap-2">
-          <MdOutlineReportGmailerrorred />
-          <h1>
-            Please fill all fields that have an asterisk (
-            <span className="text-red-500">*</span>).
-          </h1>
-        </div> */}
 
         {/* Error Popup */}
         {showErrorPopup && <ErrorPopup onClose={handleCloseErrorPopup} />}

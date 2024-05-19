@@ -4,7 +4,7 @@ import Progress from "./Progress";
 const ProgressBar = () => {
   return (
     <>
-      <div className="w-[350px] p-5 rounded-xl bg-slate-200 dark:bg-gray-800">
+      <div className="p-3 rounded-xl bg-slate-200 dark:bg-gray-800 xs:w-[280px] xl:w-[350px]">
         {/* top */}
         <div className="flex justify-between">
           <h1 className="text-xl font-bold dark:text-white">Earning</h1>

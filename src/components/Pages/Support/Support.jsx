@@ -57,11 +57,11 @@ const Support = ({ setPagename, setProgress }) => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center lg:px-20 py-2 xs:px-2">
+    <div className="w-full min-h-screen flex items-center lg:px-20 py-2 xs:px-2 xs:items-start">
       {/* form */}
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-full gap-8 p-10 my-10"
+        className="flex flex-col w-full gap-8 xl:p-10 xl:my-10 xs:p-0 xs:my-5"
       >
         {/* full name */}
         <div className="space-y-1">

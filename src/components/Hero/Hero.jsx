@@ -2,22 +2,18 @@ import { PiStudentFill } from "react-icons/pi";
 import { MdClass, MdOutlinePayment } from "react-icons/md";
 import OverviewCard from "../OverviewCard/OverviewCard";
 import Graph from "../Graph/Graph";
-// import NavBar from "../NavBar/NavBar";
 import ProgressBar from "../Progress/ProgressBar";
 
 const Hero = () => {
   return (
     <>
-      <div className="w-full h-screen px-4">
-        {/* top */}
-        {/* <NavBar PageName="Dashboard" /> */}
-
-        {/* bottom */}
-        <div className="flex justify-between w-full">
-          {/* bottom left */}
+      <div className="w-full min-h-screen px-4">
+        {/* main */}
+        <div className="flex justify-between w-full xs:flex-col items-center xl:flex-row">
+          {/* left */}
           <div className="p-1 w-full">
             {/* overview cards */}
-            <div className="flex justify-between mt-4">
+            <div className="flex items-center justify-between mt-4 xs:flex-col gap-4 xl:flex-row">
               {/* card 1 */}
               <div>
                 <OverviewCard
@@ -56,17 +52,12 @@ const Hero = () => {
             <div className="mt-4">
               <Graph />
             </div>
-
-            {/* toppers */}
-            {/* <div className="mt-5">
-              <Toppers />
-            </div> */}
           </div>
 
-          {/* bottom right */}
+          {/* right */}
           <div className="p-1">
             {/* progress */}
-            <div className="mt-4">
+            <div className="mt-4 xs:mb-5 xl:mb-0">
               <ProgressBar />
             </div>
           </div>

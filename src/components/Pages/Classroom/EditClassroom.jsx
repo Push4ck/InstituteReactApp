@@ -1,7 +1,15 @@
-// import { useState, useEffect } from "react";
+import { useEffect } from "react";
 // import { useLocation } from "react-router-dom";
 
-const EditClassroom = () => {
+const EditClassroom = ({ setPagename, setProgress }) => {
+  useEffect(() => {
+    setPagename("Edit ClassRoom");
+    setProgress(40);
+    setTimeout(() => {
+      setProgress(100);
+    }, 300);
+  }, [setPagename, setProgress]);
+
   // const location = useLocation();
   // const [classroomData, setClassroomData] = useState({});
 
@@ -14,8 +22,10 @@ const EditClassroom = () => {
   // }, [location.state]);
 
   return (
-    <div className="w-full min-h-screen dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 px-4 gap-10 xl:py-10">
+    <div className="w-full min-h-screen px-4 gap-10 xl:py-10">
+      {/* table */}
       <table className="table table-striped table-bordered table-light dark:table-dark">
+        {/* table thread */}
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -24,6 +34,8 @@ const EditClassroom = () => {
             <th scope="col">Handle</th>
           </tr>
         </thead>
+
+        {/* table body */}
         <tbody>
           <tr>
             <th scope="row">1</th>

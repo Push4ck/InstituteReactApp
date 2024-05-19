@@ -46,9 +46,13 @@ const SideBar = () => {
     <>
       {/* hamburger sidebar for small screen devices */}
       <div className="flex w-full justify-between items-center xs:h-14 xl:h-0">
-        <h1 className="xl:hidden xs:block m-2 text-xl dark:text-white">
-          Company Name
-        </h1>
+        <NavLink to="/">
+          <h1 className="xl:hidden xs:block m-2 text-xl dark:text-white">
+            Company Name
+          </h1>
+        </NavLink>
+
+        {/* hamburger menu icon */}
         <button
           class="xl:hidden xs:block m-2 text-slate-950 dark:text-white text-3xl"
           type="button"
@@ -75,7 +79,7 @@ const SideBar = () => {
             class="offcanvas-title w-full"
             id="offcanvasWithBothOptionsLabel"
           >
-            <div className="flex items-center justify-between w-full gap-2">
+            <div className="flex items-center w-full gap-2">
               {/* image */}
               <div>
                 <NavLink to="/">
@@ -284,7 +288,7 @@ const SideBar = () => {
       </div>
 
       {/* sidebar for large screen devices */}
-      <div className="h-screen p-2 flex flex-col justify-between w-64 border-r-2 border-slate-700 xs:hidden xl:flex">
+      <div className="h-screen p-2 flex flex-col justify-between w-64 border-r-4 border-slate-700 xs:hidden xl:flex">
         {/* top */}
         <div className="">
           {/* head */}
@@ -345,9 +349,9 @@ const SideBar = () => {
                   <span className="text-lg font-bold">ClassRoom</span>
                 </NavLink>
                 {classroomOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl rounded-full" />
                 )}
               </li>
               {classroomOpen && (
@@ -387,9 +391,9 @@ const SideBar = () => {
                   <span className="text-lg font-bold">Student</span>
                 </NavLink>
                 {studentOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl rounded-full" />
                 )}
               </li>
               {studentOpen && (
@@ -429,9 +433,9 @@ const SideBar = () => {
                   <span className="text-lg font-bold">Payment</span>
                 </NavLink>
                 {paymentOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl rounded-full" />
                 )}
               </li>
               {paymentOpen && (
