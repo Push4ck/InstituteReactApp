@@ -3,7 +3,7 @@ import React from "react";
 const Payment = () => {
   return (
     <>
-      <div>Payment</div>
+      <div className="min-h-screen">Payment</div>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import BrokenTv from "../../../assets/broken-tv.png";
+import BrokenTv from "../../../assets/NotFound/broken-tv.png";
 
 const NotFound = ({ setPagename, setProgress }) => {
   useEffect(() => {
@@ -33,11 +34,13 @@ const NotFound = ({ setPagename, setProgress }) => {
             </div>
 
             {/* back to home */}
-            <div>
-              <a className="bg-slate-900 hover:bg-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg flex items-center justify-center xs:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
-                Go back home
-              </a>
-            </div>
+            <NavLink to="/">
+              <div>
+                <a className="bg-slate-900 hover:bg-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg flex items-center justify-center xs:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
+                  Go back home
+                </a>
+              </div>
+            </NavLink>
           </div>
         </div>
       </div>
