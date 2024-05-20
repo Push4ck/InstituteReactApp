@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const OverviewCard = ({ bgcolor, title, count, Icon1, IconCol }) => {
   return (
     <div
-      className={`p-3 w-60 h-32 flex flex-col justify-between rounded-xl ${bgcolor}`}
+      className={`p-3 w-60 h-32 flex flex-col justify-between rounded-xl border-2 border-slate-500 ${bgcolor}`}
     >
       <div className="flex items-center gap-4">
         {/* icon */}

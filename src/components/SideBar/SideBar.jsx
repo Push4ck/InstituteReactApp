@@ -66,55 +66,59 @@ const SideBar = () => {
 
       {/* sidebar for small screens */}
       <div
-        class="offcanvas flex h-screen w-64 border-r-2 border-slate-700 p-0 md:w-auto xs:flex xl:hidden"
+        class="offcanvas w-56 h-screen flex justify-evenly border-r-2 border-slate-700 dark:bg-gray-900 p-0 md:w-auto xs:flex xl:hidden"
         data-bs-scroll="true"
         tabindex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        {/* sidebar header */}
-        <div class="offcanvas-header justify-evenly p-2 dark:bg-slate-900 flex items-center">
-          {/* company name */}
-          <div
-            class="offcanvas-title w-full"
-            id="offcanvasWithBothOptionsLabel"
-          >
-            <div className="flex items-center w-full gap-2">
-              {/* image */}
-              <div>
-                <NavLink to="/">
-                  <img
-                    src={Logo}
-                    alt="company_logo"
-                    className="border-4 border-slate-500 rounded-full w-14 object-cover"
-                  />
-                </NavLink>
-              </div>
+        <div className="p-2">
+          {/* sidebar header */}
+          <div class="offcanvas-header p-2 mt-3 flex items-center">
+            {/* company name */}
+            <div
+              class="offcanvas-title w-full"
+              id="offcanvasWithBothOptionsLabel"
+            >
+              <div className="flex items-center w-full gap-2">
+                {/* image */}
+                <div>
+                  <NavLink to="/">
+                    <img
+                      src={Logo}
+                      alt="company_logo"
+                      className="border-4 border-slate-500 rounded-full w-14 object-cover"
+                    />
+                  </NavLink>
+                </div>
 
-              {/* text */}
-              <div>
-                <NavLink to="/">
-                  <h1 className="text-xl text-slate-950 dark:text-white">
-                    Company Name
-                  </h1>
-                </NavLink>
+                {/* text */}
+                <div>
+                  <NavLink to="/">
+                    <h1 className="text-xl text-slate-950 dark:text-white">
+                      Company Name
+                    </h1>
+                  </NavLink>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* sidebar close button */}
-          <button
-            type="button"
-            class="text-slate-950 dark:text-white text-xl"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          >
-            <FaTimes />
-          </button>
+            {/* sidebar close button */}
+            <button
+              type="button"
+              class="text-slate-950 dark:text-white text-xl"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            >
+              <FaTimes />
+            </button>
+          </div>
+          {/* separator */}
+          <div className="border-t-2 border-slate-500 mt-2"></div>
         </div>
 
         {/* sidebar content */}
-        <div class="offcanvas-body dark:bg-gray-900 h-screen p-4 pt-8 flex flex-col justify-between">
+        <div class="h-[600px] p-4 pt-8 flex flex-col justify-between">
           {/* top */}
           <div>
             {/* sidebar links */}

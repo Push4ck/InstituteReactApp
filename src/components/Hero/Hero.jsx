@@ -7,7 +7,7 @@ import ProgressBar from "../Progress/ProgressBar";
 const Hero = () => {
   return (
     <>
-      <div className="w-full min-h-screen px-4">
+      <div className="w-full min-h-screen px-2">
         {/* main */}
         <div className="flex justify-between w-full xs:flex-col items-center xl:flex-row">
           {/* left */}
