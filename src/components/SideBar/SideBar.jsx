@@ -1,6 +1,10 @@
+// react lib
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../../assets/CompanyLogo/logo.png";
+
+import Logo from "../../assets/CompanyLogo/logo.png"; // logo
+
+// react icons
 import {
   MdDashboard,
   MdClass,
@@ -292,47 +296,43 @@ const SideBar = () => {
       </div>
 
       {/* sidebar for large screen devices */}
-      <div className="h-screen p-2 flex flex-col justify-between w-64 border-r-4 border-slate-700 xs:hidden xl:flex">
+      <div className="min-h-screen p-3 flex flex-col justify-between w-64 xs:hidden xl:flex">
         {/* top */}
         <div className="">
           {/* head */}
-          <div className="mb-10 flex flex-col item-center">
-            <div className="flex items-center justify-between w-full h-24">
-              {/* image */}
-              <div>
-                <NavLink to="/">
-                  <img
-                    src={Logo}
-                    alt="company_logo"
-                    className="border-4 border-slate-500 rounded-full w-16 object-cover"
-                  />
-                </NavLink>
-              </div>
-
-              {/* text */}
-              <div>
-                <NavLink to="/">
-                  <h1 className="text-2xl text-slate-950 dark:text-white">
-                    Company Name
-                  </h1>
-                </NavLink>
-              </div>
+          <div className="mb-4 flex items-center justify-between w-full h-32">
+            {/* image */}
+            <div>
+              <NavLink to="/">
+                <img
+                  src={Logo}
+                  alt="company_logo"
+                  className="border-4 border-slate-500 rounded-full w-16 object-cover"
+                />
+              </NavLink>
             </div>
 
-            {/* separator */}
-            <div className="border-t-2 border-slate-500"></div>
+            {/* text */}
+            <div>
+              <NavLink to="/">
+                <h1 className="text-2xl text-slate-950 dark:text-[#cecee6]">
+                  Company <br />
+                  Name
+                </h1>
+              </NavLink>
+            </div>
           </div>
 
           {/* links */}
           <div>
             {/* sidebar links */}
-            <ul className="space-y-3 flex flex-col items-start">
+            <ul className="space-y-5 flex flex-col items-start">
               {/* dashboard */}
-              <li className="text-slate-700 dark:text-slate-500 flex items-center gap-x-4 cursor-pointer">
+              <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/"
                   activeClassName="active"
-                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
+                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdDashboard className="text-4xl block float-left" />
                   <span className="text-lg font-bold">Dashboard</span>
@@ -341,21 +341,21 @@ const SideBar = () => {
 
               {/* classroom */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 dark:text-[#b0b0ca] w-full justify-between flex items-center gap-x-4 cursor-pointer"
                 onClick={toggleClassroom}
               >
                 <NavLink
                   to="/classroom"
                   activeClassName="active"
-                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
+                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdClass className="text-4xl block float-left" />
                   <span className="text-lg font-bold">ClassRoom</span>
                 </NavLink>
                 {classroomOpen ? (
-                  <MdArrowDropUp className="text-4xl rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {classroomOpen && (
@@ -383,21 +383,21 @@ const SideBar = () => {
 
               {/* student */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 dark:text-[#b0b0ca] w-full justify-between flex items-center gap-x-4 cursor-pointer"
                 onClick={toggleStudent}
               >
                 <NavLink
                   to="/student"
                   activeClassName="active"
-                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
+                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <PiStudentFill className="text-4xl block float-left" />
                   <span className="text-lg font-bold">Student</span>
                 </NavLink>
                 {studentOpen ? (
-                  <MdArrowDropUp className="text-4xl rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {studentOpen && (
@@ -425,21 +425,21 @@ const SideBar = () => {
 
               {/* payment */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 dark:text-[#b0b0ca] w-full justify-between flex items-center gap-x-4 cursor-pointer"
                 onClick={togglePayment}
               >
                 <NavLink
                   to="/payment"
                   activeClassName="active"
-                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
+                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdOutlinePayment className="text-4xl block float-left" />
                   <span className="text-lg font-bold">Payment</span>
                 </NavLink>
                 {paymentOpen ? (
-                  <MdArrowDropUp className="text-4xl rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {paymentOpen && (
@@ -473,11 +473,11 @@ const SideBar = () => {
               )}
 
               {/* support */}
-              <li className="text-slate-700 dark:text-slate-500 flex items-center gap-x-4 cursor-pointer">
+              <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/support"
                   activeClassName="active"
-                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-white"
+                  className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdHeadphones className="text-4xl block float-left" />
                   <span className="text-lg font-bold">Support</span>
@@ -488,7 +488,7 @@ const SideBar = () => {
         </div>
 
         {/* bottom */}
-        <div className="text-slate-700 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 cursor-pointer items-center">
+        <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 mb-4 cursor-pointer items-center">
           {/* logout */}
           <MdLogout className="text-4xl block float-left" />
           <span className="text-lg font-bold">Logout</span>

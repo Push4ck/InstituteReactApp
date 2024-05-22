@@ -9,7 +9,7 @@ const NavBar = ({ pagename }) => {
         <div className="flex items-center justify-between xs:h-12 xl:h-20">
           {/* title */}
           <div>
-            <h1 className="xs:text-lg xl:text-4xl font-medium text-slate-900 dark:text-white">
+            <h1 className="xs:text-lg xl:text-4xl font-medium text-gray-700 dark:text-[#cecee6]">
               {pagename}
             </h1>
           </div>
@@ -32,9 +32,6 @@ const NavBar = ({ pagename }) => {
             </div>
           </div>
         </div>
-
-        {/* separator */}
-        <div className="border-t-2 border-slate-500"></div>
       </div>
     </>
   );

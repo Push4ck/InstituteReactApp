@@ -1,14 +1,10 @@
-// navbar
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/NavBar/NavBar"; // navbar
 
-// top loading bar
-import LoadingBar from "react-top-loading-bar";
+import LoadingBar from "react-top-loading-bar"; // top loading bar
 
-// router dom
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // router dom
 
-// hooks
-import { useState } from "react";
+import { useState } from "react"; // hooks
 
 // bootstrap imports
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -29,21 +25,21 @@ const App = () => {
   // top loading bar function
   const [progress, setProgress] = useState(0);
 
-  // navbar
+  // navbar pagename
   const [pagename, setPagename] = useState((setPagename) => {
     setPagename = { setPagename };
   });
 
   return (
     <Router>
-      <div className="flex xl:flex-row xs:flex-col dark:bg-gradient-to-t dark:from-gray-900 dark:to-gray-800">
+      <div className="flex bg-[#ffffff] dark:bg-[#19173d] xl:flex-row xs:flex-col">
         {/* sidebar */}
         <div className="xl:fixed">
           <SideBar />
         </div>
 
         {/* main content */}
-        <div className="w-full xl:ml-64 xs:ml-0">
+        <div className="w-full p-2 xl:ml-64 xs:ml-0">
           {/* top loading bar */}
           <LoadingBar
             color="#0ea5e9"

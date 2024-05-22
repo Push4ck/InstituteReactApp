@@ -11,7 +11,7 @@ const Support = ({ setPagename, setProgress }) => {
     setTimeout(() => {
       setProgress(100);
     }, 300);
-  }, [setProgress]);
+  }, [setPagename, setProgress]);
 
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -28,9 +28,9 @@ const Support = ({ setPagename, setProgress }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateFormData(formData)) {
-      setShowSuccessPopup(true);
+      setShowSuccessPopup(true); // show success popup
     } else {
-      setShowErrorPopup(true);
+      setShowErrorPopup(true); // show error popup
     }
   };
 
@@ -57,104 +57,161 @@ const Support = ({ setPagename, setProgress }) => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center lg:px-20 py-2 xs:px-2 xs:items-start">
-      {/* form */}
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col w-full gap-8 xl:p-10 xl:my-10 xs:p-0 xs:my-5"
-      >
-        {/* full name */}
-        <div className="space-y-1">
-          <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-            Full Name: <span className="text-red-500 text-base">*</span>
-          </h1>
+    <>
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10">
+        {/* main */}
+        <div className="flex items-center xl:gap-10 xs:gap-0">
+          <div className="space-y-10">
+            {/* head text */}
+            <div className="space-y-4 md:ml-10 xs:ml-0">
+              <p className="text-slate-500 text-lg">Say hello</p>
+              <h1 className="dark:text-white text-6xl font-bold">
+                Let's Work <span className="text-sky-500">Together</span>.
+              </h1>
+              <p className="dark:text-white text-lg font-medium">
+                I'd love to meet up with you to discuss your venture, and
+                potential collaborations.
+              </p>
+            </div>
 
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={(e) =>
-              setFormData({ ...formData, fullName: e.target.value })
-            }
-            className="w-full rounded-md h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-            placeholder="Joe Doe"
-          />
+            {/* form */}
+            <div className="md:mx-10 xs:mx-0">
+              <form
+                class="needs-validation w-full space-y-5"
+                novalidate
+                onSubmit={handleSubmit}
+              >
+                {/* full name */}
+                <div class="">
+                  <label
+                    for="validationCustom03"
+                    class="form-label dark:text-white"
+                  >
+                    Full Name
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom03"
+                    value={formData.fullName}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        fullName: e.target.fullName,
+                      })
+                    }
+                    placeholder="Joe Doe"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                {/* email */}
+                <div class="">
+                  <label
+                    for="validationCustom03"
+                    class="form-label dark:text-white"
+                  >
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="validationCustom03"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        email: e.target.email,
+                      })
+                    }
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                {/* subject */}
+                <div class="">
+                  <label
+                    for="validationCustom03"
+                    class="form-label dark:text-white"
+                  >
+                    Subject
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom03"
+                    value={formData.subject}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        subject: e.target.subject,
+                      })
+                    }
+                    placeholder="Enter your subject..."
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                {/* message */}
+                <div class="">
+                  <label
+                    for="validationCustom03"
+                    class="form-label dark:text-white"
+                  >
+                    Message
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom03"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        message: e.target.message,
+                      })
+                    }
+                    placeholder="Enter your message..."
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                {/* submit button */}
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">
+                    Submit form
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* form page image */}
+          <div>
+            <img
+              src={Help}
+              alt=""
+              className="xl:block w-[600px] xxl:w-[1000px] xs:hidden"
+            />
+          </div>
         </div>
 
-        {/* email */}
-        <div className="space-y-1">
-          <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-            Email: <span className="text-red-500 text-base">*</span>
-          </h1>
+        {/* Error Popup */}
+        {showErrorPopup && <ErrorPopup onClose={handleCloseErrorPopup} />}
 
-          <input
-            type="email"
-            name="price"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            className="rounded-md w-full h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-            placeholder="example@gmail.com"
-          />
-        </div>
-
-        {/* subject */}
-        <div className="space-y-1">
-          <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-            Subject: <span className="text-red-500 text-base">*</span>
-          </h1>
-
-          <input
-            type="text"
-            name="price"
-            value={formData.subject}
-            onChange={(e) =>
-              setFormData({ ...formData, subject: e.target.value })
-            }
-            className="rounded-md w-full h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-            placeholder="Enter subject"
-          />
-        </div>
-
-        {/* message */}
-        <div className="space-y-1">
-          <h1 className="text-slate-900 font-semibold xs:text-lg lg:text-xl dark:text-white">
-            Message: <span className="text-red-500 text-base">*</span>
-          </h1>
-
-          <input
-            type="text"
-            name="price"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-            className="rounded-md w-full h-12 px-2 outline-none border-2 focus:border-2 focus:border-sky-500"
-            placeholder="Enter message"
-          />
-        </div>
-
-        {/* submit button */}
-        <button
-          type="submit"
-          className="bg-slate-900 hover:bg-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg flex items-center justify-center xs:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-        >
-          Submit
-        </button>
-      </form>
-
-      {/* form page image */}
-      <div>
-        <img src={Help} alt="" className="xs:hidden xl:flex w-[900px]" />
+        {/* Success Popup */}
+        {showSuccessPopup && <SuccessPopup onClose={handleCloseSuccessPopup} />}
       </div>
-
-      {/* Error Popup */}
-      {showErrorPopup && <ErrorPopup onClose={handleCloseErrorPopup} />}
-
-      {/* Success Popup */}
-      {showSuccessPopup && <SuccessPopup onClose={handleCloseSuccessPopup} />}
-    </div>
+    </>
   );
 };
 

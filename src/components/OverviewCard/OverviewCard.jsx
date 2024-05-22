@@ -1,10 +1,8 @@
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"; // prop type
 
-const OverviewCard = ({ bgcolor, title, count, Icon1, IconCol }) => {
+const OverviewCard = ({ title, count, Icon1, IconCol }) => {
   return (
-    <div
-      className={`p-3 w-60 h-32 flex flex-col justify-between rounded-xl border-2 border-slate-500 ${bgcolor}`}
-    >
+    <div className="p-3 w-60 h-32 flex flex-col justify-between rounded-xl bg-[#FEFAF6] dark:bg-[#19173d]">
       <div className="flex items-center gap-4">
         {/* icon */}
         <div className={`text-3xl rounded-lg p-1 ${IconCol} bg-slate-950`}>
@@ -12,7 +10,7 @@ const OverviewCard = ({ bgcolor, title, count, Icon1, IconCol }) => {
         </div>
 
         {/* text */}
-        <h1 className="text-lg font-semibold dark:text-white">{title}</h1>
+        <h1 className="text-lg font-medium dark:text-white">{title}</h1>
       </div>
 
       <div className="flex justify-start">
@@ -24,7 +22,6 @@ const OverviewCard = ({ bgcolor, title, count, Icon1, IconCol }) => {
 };
 
 OverviewCard.propTypes = {
-  bgcolor: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   Icon1: PropTypes.node.isRequired,

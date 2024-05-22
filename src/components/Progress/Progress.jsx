@@ -14,6 +14,7 @@ const Progress = () => {
             trailColor: "#020617",
           })}
         />
+
         {/* Middle Progress Bar */}
         <div
           style={{
@@ -33,6 +34,7 @@ const Progress = () => {
               trailColor: "#020617",
             })}
           />
+
           {/* Inner Progress Bar */}
           <div
             style={{

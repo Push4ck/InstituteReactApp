@@ -1,10 +1,11 @@
-import { HiChevronDown } from "react-icons/hi";
-import Progress from "./Progress";
+import { HiChevronDown } from "react-icons/hi"; // react icons
+
+import Progress from "./Progress"; // progress file
 
 const ProgressBar = () => {
   return (
     <>
-      <div className="p-3 rounded-xl bg-slate-200 dark:bg-gray-800 xs:w-[280px] xl:w-[350px]">
+      <div className="p-3 rounded-xl bg-[#FEFAF6] dark:bg-[#19173d] xs:w-[280px] xl:w-[300px] xxl:w-[350px]">
         {/* top */}
         <div className="flex justify-between">
           <h1 className="text-xl font-bold dark:text-white">Earning</h1>
