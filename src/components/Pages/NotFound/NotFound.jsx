@@ -50,6 +50,7 @@ const NotFound = ({ setPagename, setProgress }) => {
 
 NotFound.propTypes = {
   setProgress: PropTypes.func.isRequired,
+  setPagename: PropTypes.func.isRequired,
 };
 
 export default NotFound;

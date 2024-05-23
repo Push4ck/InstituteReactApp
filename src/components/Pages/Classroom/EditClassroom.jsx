@@ -61,4 +61,9 @@ const EditClassroom = ({ setPagename, setProgress }) => {
   );
 };
 
+EditClassroom.propTypes = {
+  setProgress: PropTypes.func.isRequired,
+  setPagename: PropTypes.func.isRequired,
+};
+
 export default EditClassroom;

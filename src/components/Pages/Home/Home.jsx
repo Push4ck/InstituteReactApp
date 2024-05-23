@@ -22,6 +22,7 @@ const Home = ({ setPagename, setProgress }) => {
 
 Home.propTypes = {
   setProgress: PropTypes.func.isRequired,
+  setPagename: PropTypes.func.isRequired,
 };
 
 export default Home;

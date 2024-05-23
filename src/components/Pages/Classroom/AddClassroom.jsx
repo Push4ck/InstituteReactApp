@@ -226,6 +226,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
 AddClassroom.propTypes = {
   setProgress: PropTypes.func.isRequired,
+  setPagename: PropTypes.func.isRequired,
 };
 
 export default AddClassroom;

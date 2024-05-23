@@ -121,7 +121,7 @@ const Support = ({ setPagename, setProgress }) => {
                   </label>
 
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     id="validationCustom03"
                     value={formData.email}
@@ -131,7 +131,7 @@ const Support = ({ setPagename, setProgress }) => {
                         email: e.target.value,
                       })
                     }
-                    placeholder="ClassRoom Name"
+                    placeholder="Email"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -221,6 +221,7 @@ const Support = ({ setPagename, setProgress }) => {
 
 Support.propTypes = {
   setProgress: PropTypes.func.isRequired,
+  setPagename: PropTypes.func.isRequired,
 };
 
 export default Support;
