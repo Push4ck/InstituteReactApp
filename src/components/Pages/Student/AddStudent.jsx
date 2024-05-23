@@ -142,7 +142,7 @@ const AddStudent = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen lg:px-20 py-2 xs:px-2">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
         {/* form */}
         <form
           onSubmit={handleSubmit}

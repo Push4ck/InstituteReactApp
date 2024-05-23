@@ -64,7 +64,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-sky-200 dark:bg-[#262450] rounded-3xl">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
         {/* main */}
         <div className="flex items-center xl:gap-10 xs:gap-0">
           <div className="space-y-10">
@@ -195,7 +195,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                 </div>
 
                 {/* submit button */}
-                <div class="col-12">
+                <div class="">
                   <button class="btn btn-primary" type="submit">
                     Submit form
                   </button>

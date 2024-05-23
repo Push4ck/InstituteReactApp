@@ -13,7 +13,7 @@ const Home = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="p-2">
+      <div className="">
         <Hero />
       </div>
     </>

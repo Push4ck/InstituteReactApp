@@ -11,9 +11,9 @@ import ProgressBar from "../Progress/ProgressBar"; // progress
 const Hero = () => {
   return (
     <>
-      <div className="w-full rounded-xl min-h-screen bg-[#DDDDDD] dark:bg-[#262450] flex justify-between xs:flex-col xs:items-center xl:flex-row xl:items-start">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl xs:flex-col xs:items-center xl:flex-row xl:items-start">
         {/* left */}
-        <div className="p-3">
+        <div className="p-0">
           {/* overview cards */}
           <div className="flex items-center justify-between xs:flex-col gap-4 xl:flex-row">
             {/* card 1 */}
@@ -54,7 +54,7 @@ const Hero = () => {
         </div>
 
         {/* right */}
-        <div className="p-3">
+        <div className="p-0">
           {/* progress */}
           <div className="xs:mb-5 xl:mb-0">
             <ProgressBar />

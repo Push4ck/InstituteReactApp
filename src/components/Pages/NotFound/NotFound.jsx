@@ -14,7 +14,7 @@ const NotFound = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen lg:px-20 py-2 xs:px-2">
+      <div className="w-full min-h-screen flex justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
         <div className="flex text-center justify-center xs:flex-col lg:flex-row">
           {/* 404 image */}
           <div>

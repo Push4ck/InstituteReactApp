@@ -39,7 +39,7 @@ const App = () => {
         </div>
 
         {/* main content */}
-        <div className="w-full p-2 xl:ml-64 xs:ml-0">
+        <div className="w-full p-2 xl:ml-56 xs:ml-0">
           {/* top loading bar */}
           <LoadingBar
             color="#0ea5e9"

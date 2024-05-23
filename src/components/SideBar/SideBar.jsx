@@ -296,7 +296,7 @@ const SideBar = () => {
       </div>
 
       {/* sidebar for large screen devices */}
-      <div className="min-h-screen p-3 flex flex-col justify-between w-64 xs:hidden xl:flex">
+      <div className="min-h-screen p-3 flex flex-col justify-between w-58 xs:hidden xl:flex">
         {/* top */}
         <div className="">
           {/* head */}

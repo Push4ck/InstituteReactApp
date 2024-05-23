@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import ErrorPopup from "../../validation/ErrorPopup";
-import SuccessPopup from "../../validation/SuccessPopup";
-import Help from "../../../assets/Support/help-and-support.svg";
+import { useEffect, useState } from "react"; // hooks
+
+import PropTypes from "prop-types"; // prop-types
+
+import ErrorPopup from "../../validation/ErrorPopup"; // errorPopup
+
+import SuccessPopup from "../../validation/SuccessPopup"; // successPopup
+
+import Help from "../../../assets/Support/help-and-support.svg"; // image
 
 const Support = ({ setPagename, setProgress }) => {
   useEffect(() => {
@@ -58,7 +62,7 @@ const Support = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
         {/* main */}
         <div className="flex items-center xl:gap-10 xs:gap-0">
           <div className="space-y-10">
@@ -98,10 +102,10 @@ const Support = ({ setPagename, setProgress }) => {
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        fullName: e.target.fullName,
+                        fullName: e.target.value,
                       })
                     }
-                    placeholder="Joe Doe"
+                    placeholder="Full Name"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -117,17 +121,17 @@ const Support = ({ setPagename, setProgress }) => {
                   </label>
 
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
                     id="validationCustom03"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        email: e.target.email,
+                        email: e.target.value,
                       })
                     }
-                    placeholder="example@gmail.com"
+                    placeholder="ClassRoom Name"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -150,10 +154,10 @@ const Support = ({ setPagename, setProgress }) => {
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        subject: e.target.subject,
+                        subject: e.target.value,
                       })
                     }
-                    placeholder="Enter your subject..."
+                    placeholder="Subject"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -176,17 +180,17 @@ const Support = ({ setPagename, setProgress }) => {
                     onChange={(e) =>
                       setFormData({
                         ...formData,
-                        message: e.target.message,
+                        message: e.target.value,
                       })
                     }
-                    placeholder="Enter your message..."
+                    placeholder="Message"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* submit button */}
-                <div class="col-12">
+                <div class="">
                   <button class="btn btn-primary" type="submit">
                     Submit form
                   </button>
