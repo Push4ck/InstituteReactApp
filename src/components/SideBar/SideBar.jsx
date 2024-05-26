@@ -19,13 +19,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 
 const SideBar = () => {
-  // hamburger menu
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
   // sub menu
   const [classroomOpen, setClassroomOpen] = useState(false);
   const [paymentOpen, setPaymentOpen] = useState(false);
@@ -58,7 +51,7 @@ const SideBar = () => {
 
         {/* hamburger menu icon */}
         <button
-          class="xl:hidden xs:block m-2 text-slate-950 dark:text-white text-3xl"
+          className="xl:hidden xs:block m-2 text-slate-950 dark:text-white text-3xl"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
@@ -70,18 +63,18 @@ const SideBar = () => {
 
       {/* sidebar for small screens */}
       <div
-        class="offcanvas w-56 h-screen flex justify-evenly border-r-2 border-slate-700 dark:bg-gray-900 p-0 md:w-auto xs:flex xl:hidden"
+        className="offcanvas w-56 h-screen flex justify-evenly border-r-2 border-slate-700 dark:bg-gray-900 p-0 md:w-auto xs:flex xl:hidden"
         data-bs-scroll="true"
-        tabindex="-1"
+        tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
         <div className="p-2">
           {/* sidebar header */}
-          <div class="offcanvas-header p-2 mt-3 flex items-center">
+          <div className="offcanvas-header p-2 mt-0 flex items-center">
             {/* company name */}
             <div
-              class="offcanvas-title w-full"
+              className="offcanvas-title w-full"
               id="offcanvasWithBothOptionsLabel"
             >
               <div className="flex items-center w-full gap-2">
@@ -110,28 +103,26 @@ const SideBar = () => {
             {/* sidebar close button */}
             <button
               type="button"
-              class="text-slate-950 dark:text-white text-xl"
+              className="text-slate-950 dark:text-white text-xl"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             >
               <FaTimes />
             </button>
           </div>
-          {/* separator */}
-          <div className="border-t-2 border-slate-500 mt-2"></div>
         </div>
 
         {/* sidebar content */}
-        <div class="h-[600px] p-4 pt-8 flex flex-col justify-between">
+        <div className="h-[600px] p-4 pt-8 flex flex-col justify-between">
           {/* top */}
           <div>
             {/* sidebar links */}
             <ul className="space-y-3 flex flex-col items-start">
               {/* dashboard */}
-              <li className="text-slate-700 dark:text-slate-500 flex items-center gap-x-4 cursor-pointer">
+              <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
                   <MdDashboard className="text-3xl block float-left" />
@@ -141,21 +132,21 @@ const SideBar = () => {
 
               {/* classroom */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 dark:text-[#b0b0ca] w-full justify-between flex items-center gap-x-4 cursor-pointer"
                 onClick={toggleClassroom}
               >
                 <NavLink
                   to="/classroom"
-                  activeClassName="active"
-                  className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
+                  activeclassname="active"
+                  className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdClass className="text-3xl block float-left" />
                   <span className="text-lg font-medium">ClassRoom</span>
                 </NavLink>
                 {classroomOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {classroomOpen && (
@@ -163,7 +154,7 @@ const SideBar = () => {
                 <ul className="space-y-1 flex flex-col items-center w-full">
                   {/* add classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-classroom" activeClassName="active">
+                    <NavLink to="/add-classroom" activeclassname="active">
                       <span className="text-base font-medium flex-1">
                         Add Classroom
                       </span>
@@ -172,7 +163,7 @@ const SideBar = () => {
 
                   {/* edit classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-classroom" activeClassName="active-link">
+                    <NavLink to="/edit-classroom" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Edit Classroom
                       </span>
@@ -183,29 +174,29 @@ const SideBar = () => {
 
               {/* student */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 w-full justify-between dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer"
                 onClick={toggleStudent}
               >
                 <NavLink
                   to="/student"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
                   <PiStudentFill className="text-3xl block float-left" />
                   <span className="text-lg font-medium">Student</span>
                 </NavLink>
                 {studentOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {studentOpen && (
                 // sub menu
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add student */}
-                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-student" activeClassName="active-link">
+                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-[#e3e3e8] cursor-pointer">
+                    <NavLink to="/add-student" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Add Student
                       </span>
@@ -213,8 +204,8 @@ const SideBar = () => {
                   </li>
 
                   {/* edit student */}
-                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-student" activeClassName="active-link">
+                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-[#e3e3e8] cursor-pointer">
+                    <NavLink to="/edit-student" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Edit Student
                       </span>
@@ -225,21 +216,21 @@ const SideBar = () => {
 
               {/* payment */}
               <li
-                className="text-slate-700 w-full justify-between dark:text-slate-500 flex items-center gap-x-4 cursor-pointer"
+                className="text-slate-700 w-full justify-between dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer"
                 onClick={togglePayment}
               >
                 <NavLink
                   to="/payment"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
                   <MdOutlinePayment className="text-3xl block float-left" />
                   <span className="text-lg font-medium">Payment</span>
                 </NavLink>
                 {paymentOpen ? (
-                  <MdArrowDropUp className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropUp className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 ) : (
-                  <MdArrowDropDown className="text-4xl hover:bg-slate-200 rounded-full" />
+                  <MdArrowDropDown className="text-4xl hover:text-[#e3e3e8] rounded-full" />
                 )}
               </li>
               {paymentOpen && (
@@ -247,25 +238,25 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* fees */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/fees" activeClassName="active-link">
+                    <NavLink to="/fees" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">Fees</span>
-                    </NavLink>
-                  </li>
-
-                  {/* transport */}
-                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/transport" activeClassName="active-link">
-                      <span className="text-base font-medium flex-1">
-                        Transport
-                      </span>
                     </NavLink>
                   </li>
 
                   {/* hostel */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/hostel" activeClassName="active-link">
+                    <NavLink to="/hostel" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Hostel
+                      </span>
+                    </NavLink>
+                  </li>
+
+                  {/* transport */}
+                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
+                    <NavLink to="/transport" activeclassname="active-link">
+                      <span className="text-base font-medium flex-1">
+                        Transport
                       </span>
                     </NavLink>
                   </li>
@@ -273,10 +264,10 @@ const SideBar = () => {
               )}
 
               {/* support */}
-              <li className="text-slate-700 dark:text-slate-500 flex items-center gap-x-4 cursor-pointer">
+              <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/support"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
                   <MdHeadphones className="text-3xl block float-left" />
@@ -287,7 +278,7 @@ const SideBar = () => {
           </div>
 
           {/* bottom */}
-          <div className="text-slate-700 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-2 cursor-pointer items-center">
+          <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-2 cursor-pointer items-center">
             {/* logout */}
             <MdLogout className="text-3xl block float-left" />
             <span className="text-lg font-medium">Logout</span>
@@ -331,7 +322,7 @@ const SideBar = () => {
               <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdDashboard className="text-4xl block float-left" />
@@ -346,7 +337,7 @@ const SideBar = () => {
               >
                 <NavLink
                   to="/classroom"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdClass className="text-4xl block float-left" />
@@ -363,7 +354,7 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-classroom" activeClassName="active">
+                    <NavLink to="/add-classroom" activeclassname="active">
                       <span className="text-lg font-medium flex-1">
                         Add Classroom
                       </span>
@@ -372,7 +363,7 @@ const SideBar = () => {
 
                   {/* edit classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-classroom" activeClassName="active-link">
+                    <NavLink to="/edit-classroom" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Edit Classroom
                       </span>
@@ -388,7 +379,7 @@ const SideBar = () => {
               >
                 <NavLink
                   to="/student"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <PiStudentFill className="text-4xl block float-left" />
@@ -405,7 +396,7 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-student" activeClassName="active-link">
+                    <NavLink to="/add-student" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Add Student
                       </span>
@@ -414,7 +405,7 @@ const SideBar = () => {
 
                   {/* edit student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-student" activeClassName="active-link">
+                    <NavLink to="/edit-student" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Edit Student
                       </span>
@@ -430,7 +421,7 @@ const SideBar = () => {
               >
                 <NavLink
                   to="/payment"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdOutlinePayment className="text-4xl block float-left" />
@@ -447,25 +438,25 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* fees */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/fees" activeClassName="active-link">
+                    <NavLink to="/fees" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">Fees</span>
-                    </NavLink>
-                  </li>
-
-                  {/* transport */}
-                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/transport" activeClassName="active-link">
-                      <span className="text-base font-medium flex-1">
-                        Transport
-                      </span>
                     </NavLink>
                   </li>
 
                   {/* hostel */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/hostel" activeClassName="active-link">
+                    <NavLink to="/hostel" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Hostel
+                      </span>
+                    </NavLink>
+                  </li>
+
+                  {/* transport */}
+                  <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
+                    <NavLink to="/transport" activeclassname="active-link">
+                      <span className="text-base font-medium flex-1">
+                        Transport
                       </span>
                     </NavLink>
                   </li>
@@ -476,7 +467,7 @@ const SideBar = () => {
               <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
                   to="/support"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
                   <MdHeadphones className="text-4xl block float-left" />

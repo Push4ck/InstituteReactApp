@@ -1,11 +1,8 @@
 // react icons
 import { PiStudentFill } from "react-icons/pi";
 import { MdClass, MdOutlinePayment } from "react-icons/md";
-
 import OverviewCard from "../OverviewCard/OverviewCard"; // overview card
-
 import Graph from "../Graph/Graph"; // graph
-
 import ProgressBar from "../Progress/ProgressBar"; // progress
 
 const Hero = () => {

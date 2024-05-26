@@ -1,17 +1,11 @@
 import NavBar from "./components/NavBar/NavBar"; // navbar
-
 import LoadingBar from "react-top-loading-bar"; // top loading bar
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // router dom
-
 import { useState } from "react"; // hooks
-
 // bootstrap imports
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
 import SideBar from "./components/SideBar/SideBar"; // sidebar
-
 // components -- pages
 import Home from "./components/Pages/Home/Home"; // home page
 import AddClassroom from "./components/Pages/Classroom/AddClassroom"; // add classroom page

@@ -1,9 +1,6 @@
 import PropTypes from "prop-types"; // prop type
-
 import { useEffect, useState } from "react"; // hooks
-
 import MainImg from "../../../assets/Classroom/AddClassroomForm.svg"; // classroom image
-
 // error and success modals
 import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
@@ -83,21 +80,21 @@ const AddClassroom = ({ setProgress, setPagename }) => {
             {/* form */}
             <div className="md:mx-10 xs:mx-0">
               <form
-                class="needs-validation w-full space-y-5"
-                novalidate
+                className="needs-validation w-full space-y-5"
+                noValidate
                 onSubmit={handleSubmit}
               >
                 {/* classroom name */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom03"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom03"
+                    className="form-label dark:text-white"
                   >
                     ClassRoom Name
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom03"
                     value={formData.classRoomName}
                     onChange={(e) =>
@@ -109,19 +106,19 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     placeholder="ClassRoom Name"
                     required
                   />
-                  <div class="valid-feedback">Looks good!</div>
+                  <div className="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* class */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom04"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom04"
+                    className="form-label dark:text-white"
                   >
                     Class
                   </label>
                   <select
-                    class="form-select cursor-pointer"
+                    className="form-select cursor-pointer"
                     id="validationCustom04"
                     value={formData.class}
                     onChange={(e) =>
@@ -129,28 +126,28 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     }
                     required
                   >
-                    <option selected disabled value="">
+                    <option select="true" disabled value="">
                       Choose...
                     </option>
                     <option>10th</option>
                     <option>11th</option>
                     <option>12th</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please select a valid state.
                   </div>
                 </div>
 
                 {/* classroom type */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom04"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom04"
+                    className="form-label dark:text-white"
                   >
                     ClassRoom Type
                   </label>
                   <select
-                    class="form-select cursor-pointer"
+                    className="form-select cursor-pointer"
                     id="validationCustom04"
                     value={formData.classRoomType}
                     onChange={(e) =>
@@ -161,28 +158,28 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     }
                     required
                   >
-                    <option selected disabled value="">
+                    <option select="true" disabled value="">
                       Choose...
                     </option>
                     <option>Online</option>
                     <option>Offline</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please select a valid state.
                   </div>
                 </div>
 
                 {/* price */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom05"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom05"
+                    className="form-label dark:text-white"
                   >
                     Price
                   </label>
                   <input
                     type="number"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom05"
                     value={formData.price}
                     onChange={(e) =>
@@ -191,12 +188,14 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     placeholder="30000"
                     required
                   />
-                  <div class="invalid-feedback">Please provide a amount.</div>
+                  <div className="invalid-feedback">
+                    Please provide a amount.
+                  </div>
                 </div>
 
                 {/* submit button */}
-                <div class="">
-                  <button class="btn btn-primary" type="submit">
+                <div className="">
+                  <button className="btn btn-primary" type="submit">
                     Submit form
                   </button>
                 </div>

@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import BrokenTv from "../../../assets/NotFound/broken-tv.png";
+import { useEffect } from "react"; // hook
+import { NavLink } from "react-router-dom"; // nav-link
+import PropTypes from "prop-types"; // prop-types
+import BrokenTv from "../../../assets/NotFound/broken-tv.png"; // image
 
+// top loading bar & navbar name
 const NotFound = ({ setPagename, setProgress }) => {
   useEffect(() => {
     setPagename("404 Not Found");

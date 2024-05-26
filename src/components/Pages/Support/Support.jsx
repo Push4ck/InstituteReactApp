@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react"; // hooks
-
 import PropTypes from "prop-types"; // prop-types
-
 import ErrorPopup from "../../validation/ErrorPopup"; // errorPopup
-
 import SuccessPopup from "../../validation/SuccessPopup"; // successPopup
-
 import Help from "../../../assets/Support/help-and-support.svg"; // image
 
 const Support = ({ setPagename, setProgress }) => {
@@ -68,9 +64,9 @@ const Support = ({ setPagename, setProgress }) => {
           <div className="space-y-10">
             {/* head text */}
             <div className="space-y-4 md:ml-10 xs:ml-0">
-              <p className="text-slate-500 text-lg">Say hello</p>
+              <p className="text-slate-500 text-lg">Hello There!</p>
               <h1 className="dark:text-white text-6xl font-bold">
-                Let's Work <span className="text-sky-500">Together</span>.
+                Let's Solve Your <span className="text-sky-500">Problem</span>.
               </h1>
               <p className="dark:text-white text-lg font-medium">
                 I'd love to meet up with you to discuss your venture, and
@@ -81,22 +77,22 @@ const Support = ({ setPagename, setProgress }) => {
             {/* form */}
             <div className="md:mx-10 xs:mx-0">
               <form
-                class="needs-validation w-full space-y-5"
-                novalidate
+                className="needs-validation w-full space-y-5"
+                noValidate
                 onSubmit={handleSubmit}
               >
                 {/* full name */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom03"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom03"
+                    className="form-label dark:text-white"
                   >
                     Full Name
                   </label>
 
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom03"
                     value={formData.fullName}
                     onChange={(e) =>
@@ -108,21 +104,21 @@ const Support = ({ setPagename, setProgress }) => {
                     placeholder="Full Name"
                     required
                   />
-                  <div class="valid-feedback">Looks good!</div>
+                  <div className="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* email */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom03"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom03"
+                    className="form-label dark:text-white"
                   >
                     Email
                   </label>
 
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom03"
                     value={formData.email}
                     onChange={(e) =>
@@ -134,21 +130,21 @@ const Support = ({ setPagename, setProgress }) => {
                     placeholder="Email"
                     required
                   />
-                  <div class="valid-feedback">Looks good!</div>
+                  <div className="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* subject */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom03"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom03"
+                    className="form-label dark:text-white"
                   >
                     Subject
                   </label>
 
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom03"
                     value={formData.subject}
                     onChange={(e) =>
@@ -160,21 +156,21 @@ const Support = ({ setPagename, setProgress }) => {
                     placeholder="Subject"
                     required
                   />
-                  <div class="valid-feedback">Looks good!</div>
+                  <div className="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* message */}
-                <div class="">
+                <div className="">
                   <label
-                    for="validationCustom03"
-                    class="form-label dark:text-white"
+                    htmlFor="validationCustom03"
+                    className="form-label dark:text-white"
                   >
                     Message
                   </label>
 
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="validationCustom03"
                     value={formData.message}
                     onChange={(e) =>
@@ -186,12 +182,12 @@ const Support = ({ setPagename, setProgress }) => {
                     placeholder="Message"
                     required
                   />
-                  <div class="valid-feedback">Looks good!</div>
+                  <div className="valid-feedback">Looks good!</div>
                 </div>
 
                 {/* submit button */}
-                <div class="">
-                  <button class="btn btn-primary" type="submit">
+                <div className="">
+                  <button className="btn btn-primary" type="submit">
                     Submit form
                   </button>
                 </div>

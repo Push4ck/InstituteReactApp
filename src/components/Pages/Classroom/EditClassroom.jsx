@@ -1,7 +1,32 @@
-import { useEffect } from "react";
-// import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types"; // prop-types
+// api
+import axios from "axios";
+import InstituteSoft from "../../ApiEndPoints/InstituteSoft";
+import { useEffect, useState } from "react"; // hooks
 
+// top loading bar & navbar name
 const EditClassroom = ({ setPagename, setProgress }) => {
+  // API
+  const [activeClassRoom, setActiveClassRoom] = useState([]);
+
+  useEffect(() => {
+    getActiveClassRoom();
+  }, []);
+
+  const getActiveClassRoom = () => {
+    const apiGetData =
+      InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveClassRoom;
+    axios
+      .get(apiGetData)
+      .then((response) => {
+        setActiveClassRoom(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     setPagename("Edit ClassRoom");
     setProgress(40);
@@ -10,17 +35,6 @@ const EditClassroom = ({ setPagename, setProgress }) => {
     }, 300);
   }, [setPagename, setProgress]);
 
-  // const location = useLocation();
-  // const [classroomData, setClassroomData] = useState({});
-
-  // Effect to update classroomData when location state changes
-  // useEffect(() => {
-  //   console.log("Location state:", location.state);
-  //   if (location.state) {
-  //     setClassroomData(location.state);
-  //   }
-  // }, [location.state]);
-
   return (
     <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
       {/* table */}
@@ -28,33 +42,25 @@ const EditClassroom = ({ setPagename, setProgress }) => {
         {/* table thread */}
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">classRoomId</th>
+            <th scope="col">ClassRoom Name</th>
+            <th scope="col">Class</th>
+            <th scope="col">ClassRoom Type</th>
+            <th scope="col">Price</th>
           </tr>
         </thead>
 
         {/* table body */}
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {activeClassRoom.map((classRoom, index) => (
+            <tr key={classRoom.classRoomId}>
+              <td>{index + 1}</td>
+              <td>{classRoom.classRoomName}</td>
+              <td>{classRoom.class}</td>
+              <td>{classRoom.classRoomType}</td>
+              <td>{classRoom.price}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
