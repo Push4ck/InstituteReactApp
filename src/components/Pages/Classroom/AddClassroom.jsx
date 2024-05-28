@@ -4,9 +4,52 @@ import MainImg from "../../../assets/Classroom/AddClassroomForm.svg"; // classro
 // error and success modals
 import ErrorPopup from "../../validation/ErrorPopup";
 import SuccessPopup from "../../validation/SuccessPopup";
+// instSoft
+import InstituteSoft from "../../ApiEndPoints/InstituteSoft";
+import axios from "axios";
 
 // top progress bar
 const AddClassroom = ({ setProgress, setPagename }) => {
+  // class dropdown
+  const [activeClass, setActiveClass] = useState([]);
+
+  useEffect(() => {
+    getActiveClass();
+    getActiveClassRoomType();
+  }, []);
+
+  const getActiveClass = () => {
+    const apiGetData =
+      InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveClass;
+    axios
+      .get(apiGetData)
+      .then((response) => {
+        setActiveClass(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // classRoomType dropdown
+  const [activeClassRoomType, setActiveClassRoomType] = useState([]);
+
+  const getActiveClassRoomType = () => {
+    const apiGetData =
+      InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveClassRoomType;
+    axios
+      .get(apiGetData)
+      .then((response) => {
+        setActiveClassRoomType(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // top loading bar & navbar
   useEffect(() => {
     setPagename("Add ClassRoom");
     setProgress(40);
@@ -120,18 +163,16 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                   <select
                     className="form-select cursor-pointer"
                     id="validationCustom04"
-                    value={formData.class}
-                    onChange={(e) =>
-                      setFormData({ ...formData, class: e.target.value })
-                    }
-                    required
                   >
-                    <option select="true" disabled value="">
-                      Choose...
-                    </option>
-                    <option>10th</option>
-                    <option>11th</option>
-                    <option>12th</option>
+                    {activeClass.map((Class) => (
+                      <option
+                        value={Class.classId}
+                        name={Class.className}
+                        key={Class.classId}
+                      >
+                        {Class.className}
+                      </option>
+                    ))}
                   </select>
                   <div className="invalid-feedback">
                     Please select a valid state.
@@ -149,20 +190,18 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                   <select
                     className="form-select cursor-pointer"
                     id="validationCustom04"
-                    value={formData.classRoomType}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        classRoomType: e.target.value,
-                      })
-                    }
-                    required
                   >
-                    <option select="true" disabled value="">
-                      Choose...
-                    </option>
-                    <option>Online</option>
-                    <option>Offline</option>
+                    {activeClassRoomType.map((Class) => {
+                      return (
+                        <option
+                          value={Class.classRoomTypeId}
+                          name={Class.classRoomTypeName}
+                          key={Class.classRoomTypeId}
+                        >
+                          {Class.classRoomTypeName}
+                        </option>
+                      );
+                    })}
                   </select>
                   <div className="invalid-feedback">
                     Please select a valid state.

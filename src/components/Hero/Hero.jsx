@@ -8,7 +8,7 @@ import ProgressBar from "../Progress/ProgressBar"; // progress
 const Hero = () => {
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl xs:flex-col xs:items-center xl:flex-row xl:items-start">
+      <div className="w-full flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl xs:flex-col xs:items-center xl:flex-row xl:items-start">
         {/* left */}
         <div className="p-0">
           {/* overview cards */}

@@ -1,15 +1,15 @@
-import PropType from "prop-types";
-import { FaBell, FaShareAlt } from "react-icons/fa";
-import ChangeTheme from "../Theme/ChangeTheme";
+import PropType from "prop-types"; // prop-type
+import { FaBell, FaShareAlt } from "react-icons/fa"; // react-icons
+import ChangeTheme from "../Theme/ChangeTheme"; // theme change
 
 const NavBar = ({ pagename }) => {
   return (
     <>
-      <div className="w-full xs:px-2 xl:px-4 xl:py-6">
-        <div className="flex items-center justify-between xs:h-12 xl:h-20">
+      <nav class="navbar fixed-top navbar-expand-lg bg-[#ffffff] dark:bg-[#19173d]">
+        <div class="container-md">
           {/* title */}
           <div>
-            <h1 className="xs:text-lg xl:text-4xl font-medium text-gray-700 dark:text-[#cecee6]">
+            <h1 class="navbar-brand text-2xl text-slate-700 dark:text-[#b0b0ca]">
               {pagename}
             </h1>
           </div>
@@ -32,7 +32,7 @@ const NavBar = ({ pagename }) => {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

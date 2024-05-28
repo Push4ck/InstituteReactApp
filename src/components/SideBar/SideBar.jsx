@@ -42,7 +42,7 @@ const SideBar = () => {
   return (
     <>
       {/* hamburger sidebar for small screen devices */}
-      <div className="flex w-full justify-between items-center xs:h-14 xl:h-0">
+      <div className="flex bg-[#ffffff] dark:bg-[#19173d] w-full justify-between items-center xs:h-14 xl:h-0">
         <NavLink to="/">
           <h1 className="xl:hidden xs:block m-2 text-xl dark:text-white">
             Company Name
@@ -287,11 +287,11 @@ const SideBar = () => {
       </div>
 
       {/* sidebar for large screen devices */}
-      <div className="min-h-screen p-3 flex flex-col justify-between w-58 xs:hidden xl:flex">
+      <div className="min-h-screen bg-[#ffffff] dark:bg-[#19173d] p-2 flex flex-col justify-between w-58 xs:hidden xl:flex">
         {/* top */}
         <div className="">
           {/* head */}
-          <div className="mb-4 flex items-center justify-between w-full h-32">
+          <div className="mb-4 flex items-center justify-between w-full h-24">
             {/* image */}
             <div>
               <NavLink to="/">
@@ -307,7 +307,6 @@ const SideBar = () => {
             <div>
               <NavLink to="/">
                 <h1 className="text-2xl text-slate-950 dark:text-[#cecee6]">
-                  Company <br />
                   Name
                 </h1>
               </NavLink>
@@ -479,7 +478,7 @@ const SideBar = () => {
         </div>
 
         {/* bottom */}
-        <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 mb-4 cursor-pointer items-center">
+        <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 mb-12 cursor-pointer items-center">
           {/* logout */}
           <MdLogout className="text-4xl block float-left" />
           <span className="text-lg font-bold">Logout</span>

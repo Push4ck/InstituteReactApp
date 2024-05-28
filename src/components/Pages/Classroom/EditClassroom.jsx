@@ -42,7 +42,7 @@ const EditClassroom = ({ setPagename, setProgress }) => {
         {/* table thread */}
         <thead>
           <tr>
-            <th scope="col">classRoomId</th>
+            <th scope="col">ClassRoomId</th>
             <th scope="col">ClassRoom Name</th>
             <th scope="col">Class</th>
             <th scope="col">ClassRoom Type</th>
