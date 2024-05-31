@@ -27,19 +27,21 @@ const App = () => {
 
   return (
     <Router>
-      <div className="bg-[#ffffff] dark:bg-[#19173d]">
+      <div className="bg-[#ffffff] dark:bg-[#19173d] flex flex-col gap-2">
         {/* navbar */}
-        <NavBar pagename={pagename} />
+        <div>
+          <NavBar pagename={pagename} />
+        </div>
 
         {/* main div */}
-        <div className="flex mt-14 xl:flex-row xs:flex-col">
+        <div className="flex mt-12 xl:flex-row xs:flex-col">
           {/* sidebar */}
           <div className="xl:fixed">
             <SideBar />
           </div>
 
           {/* content box */}
-          <div className="w-full min-h-screen xl:ml-56 xs:ml-0">
+          <div className="w-full min-h-screen py-2 xl:ml-56 xs:ml-0">
             {/* top loading bar */}
             <LoadingBar
               color="#0ea5e9"
@@ -60,7 +62,7 @@ const App = () => {
 
               {/* add classroom page */}
               <Route
-                path="/add-classroom"
+                path="/AddClassRoom"
                 element={
                   <AddClassroom
                     setProgress={setProgress}
@@ -71,7 +73,7 @@ const App = () => {
 
               {/* edit classroom page */}
               <Route
-                path="/edit-classroom"
+                path="/EditClassRoom"
                 element={
                   <EditClassroom
                     setProgress={setProgress}
@@ -82,7 +84,7 @@ const App = () => {
 
               {/* add student page */}
               <Route
-                path="/add-student"
+                path="/AddStudent"
                 element={
                   <AddStudent
                     setProgress={setProgress}
@@ -93,7 +95,7 @@ const App = () => {
 
               {/* edit student page */}
               <Route
-                path="/edit-student"
+                path="/EditStudent"
                 element={
                   <EditStudent
                     setProgress={setProgress}
@@ -104,7 +106,7 @@ const App = () => {
 
               {/* payment page */}
               <Route
-                path="/payment"
+                path="/Payment"
                 element={
                   <Payment
                     setProgress={setProgress}
@@ -115,7 +117,7 @@ const App = () => {
 
               {/* support page */}
               <Route
-                path="/support"
+                path="/Support"
                 element={
                   <Support
                     setProgress={setProgress}

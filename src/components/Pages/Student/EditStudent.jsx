@@ -15,7 +15,7 @@ const EditStudent = ({ setPagename, setProgress }) => {
 
   const getActiveStudent = () => {
     const apiGetData =
-      InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveStudent;
+      InstituteSoft.BaseURL + InstituteSoft.Student.GetActiveStudent;
     axios
       .get(apiGetData)
       .then((response) => {
@@ -69,7 +69,7 @@ const EditStudent = ({ setPagename, setProgress }) => {
         {/* table body */}
         <tbody>
           {activeStudent.map((Student, index) => (
-            <tr key={getActiveStudent.StudentId}>
+            <tr key={getActiveStudent.studentId}>
               {/* <td>{index + 1}</td> */}
               <td>{Student.studentFirstName}</td>
               {/* <td>{Student.studentLastName}</td> */}

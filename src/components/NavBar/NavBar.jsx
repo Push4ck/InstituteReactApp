@@ -5,11 +5,11 @@ import ChangeTheme from "../Theme/ChangeTheme"; // theme change
 const NavBar = ({ pagename }) => {
   return (
     <>
-      <nav class="navbar fixed-top navbar-expand-lg bg-[#ffffff] dark:bg-[#19173d]">
-        <div class="container-md">
+      <nav className="navbar fixed-top navbar-expand-lg bg-[#ffffff] dark:bg-[#19173d]">
+        <div className="container-md">
           {/* title */}
           <div>
-            <h1 class="navbar-brand text-2xl text-slate-700 dark:text-[#b0b0ca]">
+            <h1 className="navbar-brand text-2xl text-slate-700 dark:text-[#b0b0ca]">
               {pagename}
             </h1>
           </div>

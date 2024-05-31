@@ -136,7 +136,7 @@ const SideBar = () => {
                 onClick={toggleClassroom}
               >
                 <NavLink
-                  to="/classroom"
+                  to="/ClassRoom"
                   activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
@@ -154,7 +154,7 @@ const SideBar = () => {
                 <ul className="space-y-1 flex flex-col items-center w-full">
                   {/* add classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-classroom" activeclassname="active">
+                    <NavLink to="/AddClassRoom" activeclassname="active">
                       <span className="text-base font-medium flex-1">
                         Add Classroom
                       </span>
@@ -163,7 +163,7 @@ const SideBar = () => {
 
                   {/* edit classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-classroom" activeclassname="active-link">
+                    <NavLink to="/EditClassRoom" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Edit Classroom
                       </span>
@@ -178,7 +178,7 @@ const SideBar = () => {
                 onClick={toggleStudent}
               >
                 <NavLink
-                  to="/student"
+                  to="/Student"
                   activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
@@ -196,7 +196,7 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-[#e3e3e8] cursor-pointer">
-                    <NavLink to="/add-student" activeclassname="active-link">
+                    <NavLink to="/AddStudent" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Add Student
                       </span>
@@ -205,7 +205,7 @@ const SideBar = () => {
 
                   {/* edit student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-[#e3e3e8] cursor-pointer">
-                    <NavLink to="/edit-student" activeclassname="active-link">
+                    <NavLink to="/EditStudent" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Edit Student
                       </span>
@@ -220,7 +220,7 @@ const SideBar = () => {
                 onClick={togglePayment}
               >
                 <NavLink
-                  to="/payment"
+                  to="/Payment"
                   activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
@@ -238,14 +238,14 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* fees */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/fees" activeclassname="active-link">
+                    <NavLink to="/Fees" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">Fees</span>
                     </NavLink>
                   </li>
 
                   {/* hostel */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/hostel" activeclassname="active-link">
+                    <NavLink to="/Hostel" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Hostel
                       </span>
@@ -254,7 +254,7 @@ const SideBar = () => {
 
                   {/* transport */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/transport" activeclassname="active-link">
+                    <NavLink to="/Transport" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Transport
                       </span>
@@ -266,7 +266,7 @@ const SideBar = () => {
               {/* support */}
               <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
-                  to="/support"
+                  to="/Support"
                   activeclassname="active"
                   className="flex items-center gap-x-2 hover:text-slate-950 dark:hover:text-white"
                 >
@@ -335,7 +335,7 @@ const SideBar = () => {
                 onClick={toggleClassroom}
               >
                 <NavLink
-                  to="/classroom"
+                  to="/ClassRoom"
                   activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
@@ -353,7 +353,7 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-classroom" activeclassname="active">
+                    <NavLink to="/AddClassRoom" activeclassname="active">
                       <span className="text-lg font-medium flex-1">
                         Add Classroom
                       </span>
@@ -362,7 +362,7 @@ const SideBar = () => {
 
                   {/* edit classroom */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-classroom" activeclassname="active-link">
+                    <NavLink to="/EditClassRoom" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Edit Classroom
                       </span>
@@ -377,7 +377,7 @@ const SideBar = () => {
                 onClick={toggleStudent}
               >
                 <NavLink
-                  to="/student"
+                  to="/Student"
                   activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
@@ -395,7 +395,7 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* add student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/add-student" activeclassname="active-link">
+                    <NavLink to="/AddStudent" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Add Student
                       </span>
@@ -404,7 +404,7 @@ const SideBar = () => {
 
                   {/* edit student */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/edit-student" activeclassname="active-link">
+                    <NavLink to="/EditStudent" activeclassname="active-link">
                       <span className="text-lg font-medium flex-1">
                         Edit Student
                       </span>
@@ -419,7 +419,7 @@ const SideBar = () => {
                 onClick={togglePayment}
               >
                 <NavLink
-                  to="/payment"
+                  to="/Payment"
                   activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
@@ -437,14 +437,14 @@ const SideBar = () => {
                 <ul className="space-y-3 flex flex-col items-center w-full">
                   {/* fees */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/fees" activeclassname="active-link">
+                    <NavLink to="/Fees" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">Fees</span>
                     </NavLink>
                   </li>
 
                   {/* hostel */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/hostel" activeclassname="active-link">
+                    <NavLink to="/Hostel" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Hostel
                       </span>
@@ -453,7 +453,7 @@ const SideBar = () => {
 
                   {/* transport */}
                   <li className="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
-                    <NavLink to="/transport" activeclassname="active-link">
+                    <NavLink to="/Transport" activeclassname="active-link">
                       <span className="text-base font-medium flex-1">
                         Transport
                       </span>
@@ -465,7 +465,7 @@ const SideBar = () => {
               {/* support */}
               <li className="text-slate-700 dark:text-[#b0b0ca] flex items-center gap-x-4 cursor-pointer">
                 <NavLink
-                  to="/support"
+                  to="/Support"
                   activeclassname="active"
                   className="flex items-center gap-x-4 hover:text-slate-950 dark:hover:text-[#e3e3e8]"
                 >
@@ -478,7 +478,7 @@ const SideBar = () => {
         </div>
 
         {/* bottom */}
-        <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 mb-12 cursor-pointer items-center">
+        <div className="text-slate-700 dark:text-[#b0b0ca] hover:text-red-500 dark:hover:text-red-500 text-sm flex gap-x-4 mb-14 ml-1 cursor-pointer items-center">
           {/* logout */}
           <MdLogout className="text-4xl block float-left" />
           <span className="text-lg font-bold">Logout</span>
