@@ -1,13 +1,14 @@
 import PropTypes from "prop-types"; // prop-types
-// api
 import axios from "axios";
 import InstituteSoft from "../../ApiEndPoints/InstituteSoft";
 import { useEffect, useState } from "react"; // hooks
+import { useNavigate } from "react-router-dom"; // for navigation
+import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md";
 
 // top loading bar & navbar name
 const EditClassroom = ({ setPagename, setProgress }) => {
-  // API
   const [activeClassRoom, setActiveClassRoom] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getActiveClassRoom();
@@ -35,18 +36,41 @@ const EditClassroom = ({ setPagename, setProgress }) => {
     }, 300);
   }, [setPagename, setProgress]);
 
+  // edit
+  const handleEdit = (classRoomId) => {
+    navigate(`/AddClassRoom/${classRoomId}`);
+  };
+
+  // delete
+  const handleDelete = (classRoomId) => {
+    const apiDeleteData =
+      InstituteSoft.BaseURL +
+      InstituteSoft.ClassRoom.DeleteClassRoom +
+      `/${classRoomId}`;
+    axios
+      .delete(apiDeleteData)
+      .then((response) => {
+        console.log("Classroom deleted:", response.data);
+        getActiveClassRoom(); // Refresh the table data after deletion
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
       {/* table */}
       <table className="table table-striped table-bordered table-light dark:table-dark">
         {/* table thread */}
         <thead>
-          <tr>
-            <th scope="col">ClassRoomId</th>
+          <tr key={""}>
+            <th scope="col">S.No</th>
             <th scope="col">ClassRoom Name</th>
             <th scope="col">Class</th>
             <th scope="col">ClassRoom Type</th>
             <th scope="col">Price</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
 
@@ -59,6 +83,20 @@ const EditClassroom = ({ setPagename, setProgress }) => {
               <td>{classRoom.class}</td>
               <td>{classRoom.classRoomType}</td>
               <td>{classRoom.price}</td>
+              <td className="space-x-4">
+                <button
+                  onClick={() => handleEdit(classRoom.classRoomId)}
+                  className="text-xl"
+                >
+                  <MdOutlineEdit />
+                </button>
+                <button
+                  onClick={() => handleDelete(classRoom.classRoomId)}
+                  className="text-xl"
+                >
+                  <MdDeleteOutline />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

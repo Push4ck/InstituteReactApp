@@ -32,7 +32,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
     ClassRoomId: "",
     ClassRoomName: "",
     Class: "8th",
-    ClassRoomType: "online",
+    ClassRoomType: "Online",
     Price: 0,
   });
 
@@ -182,7 +182,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                   required
                 >
                   {activeClass.map((Class) => (
-                    <option value={Class.className} key={Class.classNameId}>
+                    <option value={Class.className} key={Class.classId}>
                       {Class.className}
                     </option>
                   ))}
@@ -246,7 +246,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
               {/* submit button */}
               <div>
                 <button className="btn btn-primary" type="submit">
-                  Submit form
+                  Submit
                 </button>
               </div>
             </form>

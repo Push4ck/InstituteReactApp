@@ -10,6 +10,9 @@ const InstituteSoft = {
 
     // post method
     SetClassRoom: "/api/ClassRoom/SetClassRoom",
+
+    // deleted Classroom
+    DeleteClassRoom: "/api/ClassRoom/DeleteClassRoom",
   },
 
   // student api
