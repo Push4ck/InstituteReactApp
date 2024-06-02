@@ -126,7 +126,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
     <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
       <div className="flex items-center xl:gap-10 xs:gap-0">
         {/* main content */}
-        <div className="space-y-10">
+        <div className="space-y-5">
           {/* page head */}
           <div className="space-y-4 md:ml-10 xs:ml-0">
             <p className="text-slate-500 text-lg">Say hello</p>

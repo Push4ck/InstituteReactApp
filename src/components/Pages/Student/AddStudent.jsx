@@ -142,7 +142,7 @@ const AddStudent = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
+      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450]">
         {/* main */}
         <div className="flex xl:gap-10 xs:gap-0">
           <div className="space-y-10">

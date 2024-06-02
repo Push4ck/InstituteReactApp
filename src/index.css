@@ -11,8 +11,12 @@
 
   @media (prefers-color-scheme: dark) {
     .dark .active {
-      @apply text-[#e3e3e8];
+      @apply bg-blue-600 text-white w-full rounded-xl;
     }
+    .active {
+      @apply bg-blue-600 text-white w-full rounded-xl;
+    }
+    /* [#9560f6] */
   }
 }
 

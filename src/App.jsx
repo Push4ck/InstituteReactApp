@@ -4,9 +4,10 @@ import { useState } from "react"; // hooks
 // bootstrap imports
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+// components
 import NavBar from "./components/NavBar/NavBar"; // navbar
 import SideBar from "./components/SideBar/SideBar"; // sidebar
-// components -- pages
+// pages
 import Home from "./components/Pages/Home/Home"; // home page
 import AddClassroom from "./components/Pages/Classroom/AddClassroom"; // add classroom page
 import EditClassroom from "./components/Pages/Classroom/EditClassroom"; // edit classroom page
@@ -27,7 +28,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="bg-[#ffffff] dark:bg-[#19173d] flex flex-col gap-2">
+      <div className="bg-[#ffffff] min-h-screen dark:bg-[#19173d] flex flex-col gap-2">
         {/* navbar */}
         <div>
           <NavBar pagename={pagename} />
@@ -41,7 +42,7 @@ const App = () => {
           </div>
 
           {/* content box */}
-          <div className="w-full min-h-screen py-2 xl:ml-56 xs:ml-0">
+          <div className="w-full xl:ml-56 xs:ml-0">
             {/* top loading bar */}
             <LoadingBar
               color="#0ea5e9"
