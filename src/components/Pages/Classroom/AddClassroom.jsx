@@ -86,14 +86,14 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       )
       .then((response) => {
         console.log(response.data);
-        setShowSuccessPopup(true);
+        // setShowSuccessPopup(true);
       })
       .catch((error) => {
         console.error(
           "Error come from API:",
           error.response ? error.response.data : error.message // prints error message or error data came from api
         );
-        setShowErrorPopup(true);
+        // setShowErrorPopup(true);
       });
   };
 
@@ -106,10 +106,25 @@ const AddClassroom = ({ setProgress, setPagename }) => {
     }));
   };
 
-  // submit handler (onSubmit)
+  // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    setClassRoomData();
+
+    if (
+      !data.ClassRoomName ||
+      !data.Class ||
+      !data.ClassRoomType ||
+      data.Price < 0 ||
+      !data.Price
+    ) {
+      console.log("Error");
+      setShowErrorPopup(true);
+      return;
+    } else {
+      console.log("Success");
+      setShowSuccessPopup(true);
+      setClassRoomData();
+    }
   };
 
   // error popup
@@ -141,11 +156,7 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
           {/* form */}
           <div className="md:mx-10 xs:mx-0">
-            <form
-              className="needs-validation w-full space-y-5"
-              noValidate
-              onSubmit={handleSubmit}
-            >
+            <form className="needs-validation w-full space-y-5" noValidate>
               {/* classroom name */}
               <div>
                 <label
@@ -245,7 +256,11 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
               {/* submit button */}
               <div>
-                <button className="btn btn-primary" type="submit">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={handleSubmit}
+                >
                   Submit
                 </button>
               </div>
