@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"; // prop-types
-import axios from "axios";
-import InstituteSoft from "../../ApiEndPoints/InstituteSoft";
+import axios from "axios"; // axios
+import InstituteSoft from "../../ApiEndPoints/InstituteSoft"; // api endpoint
 import { useEffect, useState } from "react"; // hooks
 import { useNavigate } from "react-router-dom"; // for navigation
-import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md";
+import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md"; // reacts-icons
 
 // top loading bar & navbar name
 const EditClassroom = ({ setPagename, setProgress }) => {
@@ -21,7 +21,6 @@ const EditClassroom = ({ setPagename, setProgress }) => {
       .get(apiGetData)
       .then((response) => {
         setActiveClassRoom(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -43,23 +42,14 @@ const EditClassroom = ({ setPagename, setProgress }) => {
 
   // delete
   const handleDelete = (classRoomId) => {
-    const apiDeleteData =
-      InstituteSoft.BaseURL +
-      InstituteSoft.ClassRoom.DeleteClassRoom +
-      `/${classRoomId}`;
-    axios
-      .delete(apiDeleteData)
-      .then((response) => {
-        console.log("Classroom deleted:", response.data);
-        getActiveClassRoom(); // Refresh the table data after deletion
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const apiGetData = `InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveClassRoom.${classRoomId}`;
+    axios.delete(apiGetData).then(() => {
+      console.log("data deleted");
+    });
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
+    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450]">
       {/* table */}
       <table className="table table-striped table-bordered theme-light">
         {/* table thread */}
@@ -90,10 +80,7 @@ const EditClassroom = ({ setPagename, setProgress }) => {
                 >
                   <MdOutlineEdit />
                 </button>
-                <button
-                  onClick={() => handleDelete(classRoom.classRoomId)}
-                  className="text-xl"
-                >
+                <button onClick={handleDelete} className="text-xl">
                   <MdDeleteOutline />
                 </button>
               </td>

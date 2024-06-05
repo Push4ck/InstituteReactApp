@@ -76,8 +76,6 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       Price: parseFloat(data.Price),
     };
 
-    console.log("Data sent to API => ", dataSet); // printing "data sent to API => " on console.
-
     // sending data to APIs endpoint using POST method
     axios
       .post(
@@ -86,14 +84,12 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       )
       .then((response) => {
         console.log(response.data);
-        // setShowSuccessPopup(true);
+        setShowSuccessPopup(true);
       })
       .catch((error) => {
         console.error(
-          "Error come from API:",
           error.response ? error.response.data : error.message // prints error message or error data came from api
         );
-        // setShowErrorPopup(true);
       });
   };
 
@@ -104,12 +100,13 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       ...prevData,
       [name]: value,
     }));
+    setShowErrorPopup(false);
+    setShowSuccessPopup(false);
   };
 
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (
       !data.ClassRoomName ||
       !data.Class ||
@@ -117,28 +114,17 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       data.Price < 0 ||
       !data.Price
     ) {
-      console.log("Error");
       setShowErrorPopup(true);
-      return;
     } else {
-      console.log("Success");
-      setShowSuccessPopup(true);
       setClassRoomData();
     }
   };
 
-  // error popup
-  const handleCloseErrorPopup = () => {
-    setShowErrorPopup(false);
-  };
-
-  // success popup
-  const handleCloseSuccessPopup = () => {
-    setShowSuccessPopup(false);
-  };
+  // price field validation
+  const priceVal = ["e", "E", "+", "-", "."];
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
+    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450]">
       <div className="flex items-center xl:gap-10 xs:gap-0">
         {/* main content */}
         <div className="space-y-5">
@@ -156,41 +142,35 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
           {/* form */}
           <div className="md:mx-10 xs:mx-0">
-            <form className="needs-validation w-full space-y-5" noValidate>
+            <form className="needs-validation w-full space-y-5">
               {/* classroom name */}
               <div>
-                <label
-                  htmlFor="validationCustom03"
-                  className="form-label dark:text-white"
-                >
+                <label className="form-label dark:text-white">
                   ClassRoom Name
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="validationCustom03"
                   name="ClassRoomName"
+                  minLength={3}
+                  maxLength={50}
+                  value={data.ClassRoomName}
                   onChange={handleInputChange}
                   placeholder="ClassRoom Name"
-                  required
                 />
-                <div className="valid-feedback">Looks good!</div>
+                <span className="text-slate-500 dark:text-slate-400 text-sm">
+                  ClassRoom Name should be between 3-50
+                </span>
               </div>
 
               {/* class */}
               <div>
-                <label
-                  htmlFor="validationCustom04"
-                  className="form-label dark:text-white"
-                >
-                  Class
-                </label>
+                <label className="form-label dark:text-white">Class</label>
                 <select
                   className="form-select cursor-pointer"
-                  id="validationCustom04"
                   name="Class"
+                  value={data.Class}
                   onChange={handleInputChange}
-                  required
                 >
                   {activeClass.map((Class) => (
                     <option value={Class.className} key={Class.classId}>
@@ -205,18 +185,14 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
               {/* classroom type */}
               <div>
-                <label
-                  htmlFor="validationCustom04"
-                  className="form-label dark:text-white"
-                >
+                <label className="form-label dark:text-white">
                   ClassRoom Type
                 </label>
                 <select
                   className="form-select cursor-pointer"
-                  id="validationCustom04"
                   name="ClassRoomType"
+                  value={data.ClassRoomType}
                   onChange={handleInputChange}
-                  required
                 >
                   {activeClassRoomType.map((Class) => (
                     <option
@@ -234,24 +210,20 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
               {/* price */}
               <div>
-                <label
-                  htmlFor="validationCustom05"
-                  className="form-label dark:text-white"
-                >
-                  Price
-                </label>
+                <label className="form-label dark:text-white">Price</label>
                 <input
                   type="number"
                   className="form-control"
-                  id="validationCustom05"
                   name="Price"
+                  value={data.Price}
                   onChange={handleInputChange}
+                  onInput={(e) => (e.target.value = e.target.value.slice(0, 7))}
+                  onKeyDown={(e) =>
+                    priceVal.includes(e.key) && e.preventDefault()
+                  }
                   placeholder="0"
                   required
                 />
-                <div className="invalid-feedback">
-                  Please provide an amount.
-                </div>
               </div>
 
               {/* submit button */}
@@ -279,8 +251,8 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       </div>
 
       {/* error & success popup */}
-      {showErrorPopup && <ErrorPopup onClose={handleCloseErrorPopup} />}
-      {showSuccessPopup && <SuccessPopup onClose={handleCloseSuccessPopup} />}
+      {showErrorPopup && <ErrorPopup />}
+      {showSuccessPopup && <SuccessPopup />}
     </div>
   );
 };

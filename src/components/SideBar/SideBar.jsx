@@ -1,9 +1,7 @@
 // react lib
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import Logo from "../../assets/CompanyLogo/logo.png"; // logo
-
 // react icons
 import {
   MdDashboard,

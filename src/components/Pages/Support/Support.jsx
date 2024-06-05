@@ -28,9 +28,7 @@ const Support = ({ setPagename, setProgress }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateFormData(formData)) {
-      setShowSuccessPopup(true); // show success popup
     } else {
-      setShowErrorPopup(true); // show error popup
     }
   };
 
@@ -47,14 +45,10 @@ const Support = ({ setPagename, setProgress }) => {
   };
 
   // closing error popup
-  const handleCloseErrorPopup = () => {
-    setShowErrorPopup(false);
-  };
+  const handleCloseErrorPopup = () => {};
 
   // closing success popup
-  const handleCloseSuccessPopup = () => {
-    setShowSuccessPopup(false);
-  };
+  const handleCloseSuccessPopup = () => {};
 
   return (
     <>

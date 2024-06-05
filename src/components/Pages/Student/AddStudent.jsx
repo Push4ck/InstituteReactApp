@@ -68,9 +68,7 @@ const AddStudent = ({ setPagename, setProgress }) => {
     e.preventDefault();
     if (validateFormData(formData)) {
       console.log(formData);
-      setShowSuccessPopup(true);
     } else {
-      setShowErrorPopup(true);
     }
   };
 
@@ -128,16 +126,6 @@ const AddStudent = ({ setPagename, setProgress }) => {
     ) {
       return true; // show success popup
     }
-  };
-
-  // closing error popup
-  const handleCloseErrorPopup = () => {
-    setShowErrorPopup(false);
-  };
-
-  // closing success popup
-  const handleCloseSuccessPopup = () => {
-    setShowSuccessPopup(false);
   };
 
   return (

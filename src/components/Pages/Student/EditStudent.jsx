@@ -36,7 +36,7 @@ const EditStudent = ({ setPagename, setProgress }) => {
   }, [setPagename, setProgress]);
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
+    <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450]">
       {/* table */}
       <table className="table table-striped table-bordered table-light dark:table-dark">
         {/* table thread */}
