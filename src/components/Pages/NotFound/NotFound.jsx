@@ -1,7 +1,7 @@
 import { useEffect } from "react"; // hook
 import { NavLink } from "react-router-dom"; // nav-link
 import PropTypes from "prop-types"; // prop-types
-import BrokenTv from "../../../assets/NotFound/broken-tv.png"; // image
+import MainImg from "../../../assets/NotFound/broken-robot.png"; // image
 
 // top loading bar & navbar name
 const NotFound = ({ setPagename, setProgress }) => {
@@ -14,38 +14,21 @@ const NotFound = ({ setPagename, setProgress }) => {
   }, [setProgress]);
 
   return (
-    <>
-      <div className="w-full min-h-screen flex justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
-        <div className="flex text-center justify-center xs:flex-col lg:flex-row">
-          {/* 404 image */}
-          <div>
-            <img src={BrokenTv} alt="404" className="xs:w-68 lg:w-[600px]" />
-          </div>
-
-          {/* 404 text & link */}
-          <div className="flex flex-col items-center justify-center">
-            {/* 404 text */}
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-slate-900 dark:text-white">
-                Oops! Page not found.
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-sky-500">
-                {`Looks like you're lost in matrix!`}
-              </p>
-            </div>
-
-            {/* back to home */}
-            <NavLink to="/">
-              <div>
-                <a className="bg-slate-900 hover:bg-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg flex items-center justify-center xs:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
-                  Go back home
-                </a>
-              </div>
-            </NavLink>
-          </div>
-        </div>
+    <div className="flex w-full justify-center items-center h-screen dark:text-white">
+      <div className="w-full flex flex-col items-center">
+        <img src={MainImg} alt="" className="w-96" />
+        <p className="text3xl mb-2">
+          Error code <span className="text-5xl font-bold">404</span>
+        </p>
+        <h1 className="text-7xl font-bold">
+          We can't find the page <br /> you are looking for...
+        </h1>
+        <p className="text-2xl mt-4">You can return to our home page.</p>
+        <button className="btn btn-primary mt-10 text-xl" type="button">
+          <NavLink to="/">Home</NavLink>
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 

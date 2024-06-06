@@ -52,24 +52,28 @@ const Support = ({ setPagename, setProgress }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450] rounded-3xl">
+      <div
+        className="w-full min-h-screen flex flex-col justify-center items-center p-4 bg-slate-200 dark:bg-[#262450]"
+        // style={{ height: "calc(100%-56px)" }}
+      >
         {/* main */}
-        <div className="flex items-center xl:gap-10 xs:gap-0">
-          <div className="space-y-10">
+        <div className="flex items-center w-full xl:gap-10 xs:gap-0">
+          <div className="flex justify-evenly items-center space-y-10 w-full">
             {/* head text */}
-            <div className="space-y-4 md:ml-10 xs:ml-0">
+            <div className="space-y-4 md:ml-0 xs:ml-0">
               <p className="text-slate-500 text-lg">Hello There!</p>
               <h1 className="dark:text-white text-6xl font-bold">
-                Let's Solve Your <span className="text-sky-500">Problem</span>.
+                Let's Solve <br /> Your{" "}
+                <span className="text-sky-500">Problem</span>.
               </h1>
               <p className="dark:text-white text-lg font-medium">
-                I'd love to meet up with you to discuss your venture, and
+                I'd love to meet up with you to discuss your venture, <br /> and
                 potential collaborations.
               </p>
             </div>
 
             {/* form */}
-            <div className="md:mx-10 xs:mx-0">
+            <div className="xl:mx-0 md:mx-0 xs:mx-0 w-[40%]">
               <form
                 className="needs-validation w-full space-y-5"
                 noValidate
@@ -182,7 +186,7 @@ const Support = ({ setPagename, setProgress }) => {
                 {/* submit button */}
                 <div className="">
                   <button className="btn btn-primary" type="submit">
-                    Submit form
+                    Submit
                   </button>
                 </div>
               </form>
@@ -190,13 +194,13 @@ const Support = ({ setPagename, setProgress }) => {
           </div>
 
           {/* form page image */}
-          <div>
+          {/* <div>
             <img
               src={Help}
               alt=""
               className="xl:block w-[600px] xxl:w-[1000px] xs:hidden"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Error Popup */}

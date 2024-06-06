@@ -2,13 +2,11 @@ import PropTypes from "prop-types"; // prop-types
 import axios from "axios"; // axios
 import InstituteSoft from "../../ApiEndPoints/InstituteSoft"; // api endpoint
 import { useEffect, useState } from "react"; // hooks
-import { useNavigate } from "react-router-dom"; // for navigation
 import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md"; // reacts-icons
 
 // top loading bar & navbar name
 const EditClassroom = ({ setPagename, setProgress }) => {
   const [activeClassRoom, setActiveClassRoom] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getActiveClassRoom();
@@ -35,19 +33,6 @@ const EditClassroom = ({ setPagename, setProgress }) => {
     }, 300);
   }, [setPagename, setProgress]);
 
-  // edit
-  const handleEdit = (classRoomId) => {
-    navigate(`/AddClassRoom/${classRoomId}`);
-  };
-
-  // delete
-  const handleDelete = (classRoomId) => {
-    const apiGetData = `InstituteSoft.BaseURL + InstituteSoft.ClassRoom.GetActiveClassRoom.${classRoomId}`;
-    axios.delete(apiGetData).then(() => {
-      console.log("data deleted");
-    });
-  };
-
   return (
     <div className="w-full min-h-screen flex flex-col justify-between items-center p-4 gap-10 bg-slate-200 dark:bg-[#262450]">
       {/* table */}
@@ -73,14 +58,16 @@ const EditClassroom = ({ setPagename, setProgress }) => {
               <td>{classRoom.class}</td>
               <td>{classRoom.classRoomType}</td>
               <td>{classRoom.price}</td>
+
+              {/* actions */}
               <td className="space-x-4">
-                <button
-                  onClick={() => handleEdit(classRoom.classRoomId)}
-                  className="text-xl"
-                >
+                {/* edit button */}
+                <button className="text-xl">
                   <MdOutlineEdit />
                 </button>
-                <button onClick={handleDelete} className="text-xl">
+
+                {/* delete button */}
+                <button className="text-xl">
                   <MdDeleteOutline />
                 </button>
               </td>

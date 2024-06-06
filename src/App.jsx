@@ -1,5 +1,5 @@
 import LoadingBar from "react-top-loading-bar"; // top loading bar
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // router dom
+import { Routes, Route, useLocation } from "react-router-dom"; // router dom
 import { useState } from "react"; // hooks
 // bootstrap imports
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,126 +22,134 @@ const App = () => {
   const [progress, setProgress] = useState(0);
 
   // navbar pagename
-  const [pagename, setPagename] = useState((setPagename) => {
-    setPagename = { setPagename };
-  });
+  const [pagename, setPagename] = useState("");
+
+  // Get current location
+  const location = useLocation();
+
+  // Define routes
+  const knownPaths = [
+    "/",
+    "/AddClassRoom",
+    "/EditClassRoom",
+    "/AddStudent",
+    "/EditStudent",
+    "/Payment",
+    "/Support",
+  ];
+
+  // Check if the current path is not in the known paths
+  const isNotFoundPage = !knownPaths.includes(location.pathname);
 
   return (
-    <Router>
-      <div className="bg-[#ffffff] min-h-screen dark:bg-[#19173d] flex flex-col gap-2">
-        {/* navbar */}
-        <div>
-          <NavBar pagename={pagename} />
-        </div>
+    <div className="bg-[#ffffff] min-h-screen dark:bg-[#19173d] flex flex-col">
+      {/* navbar */}
+      <div>{/* <NavBar pagename={pagename} /> */}</div>
 
-        {/* main div */}
-        <div className="flex mt-12 xl:flex-row xs:flex-col">
-          {/* sidebar */}
+      {/* main div */}
+      <div className="flex xl:flex-row xs:flex-col">
+        {/* sidebar */}
+        {!isNotFoundPage && (
           <div className="xl:fixed">
             <SideBar />
           </div>
+        )}
 
-          {/* content box */}
-          <div className="w-full xl:ml-56 xs:ml-0">
-            {/* top loading bar */}
-            <LoadingBar
-              color="#0ea5e9"
-              height={4}
-              progress={progress}
-              onLoaderFinished={() => setProgress(0)}
+        {/* content box */}
+        <div
+          className={`w-full ${
+            !isNotFoundPage ? "xl:ml-56" : "xl:ml-0"
+          } xs:ml-0`}
+        >
+          {/* top loading bar */}
+          <LoadingBar
+            color="#0ea5e9"
+            height={4}
+            progress={progress}
+            onLoaderFinished={() => setProgress(0)}
+          />
+
+          {/* routing */}
+          <Routes>
+            {/* home page */}
+            <Route
+              path="/"
+              element={
+                <Home setProgress={setProgress} setPagename={setPagename} />
+              }
             />
 
-            {/* routing */}
-            <Routes>
-              {/* home page */}
-              <Route
-                path="/"
-                element={
-                  <Home setProgress={setProgress} setPagename={setPagename} />
-                }
-              />
+            {/* add classroom page */}
+            <Route
+              path="/AddClassRoom"
+              element={
+                <AddClassroom
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
+            />
 
-              {/* add classroom page */}
-              <Route
-                path="/AddClassRoom"
-                element={
-                  <AddClassroom
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
+            {/* edit classroom page */}
+            <Route
+              path="/EditClassRoom"
+              element={
+                <EditClassroom
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
+            />
 
-              {/* edit classroom page */}
-              <Route
-                path="/EditClassRoom"
-                element={
-                  <EditClassroom
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
+            {/* add student page */}
+            <Route
+              path="/AddStudent"
+              element={
+                <AddStudent
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
+            />
 
-              {/* add student page */}
-              <Route
-                path="/AddStudent"
-                element={
-                  <AddStudent
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
+            {/* edit student page */}
+            <Route
+              path="/EditStudent"
+              element={
+                <EditStudent
+                  setProgress={setProgress}
+                  setPagename={setPagename}
+                />
+              }
+            />
 
-              {/* edit student page */}
-              <Route
-                path="/EditStudent"
-                element={
-                  <EditStudent
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
+            {/* payment page */}
+            <Route
+              path="/Payment"
+              element={
+                <Payment setProgress={setProgress} setPagename={setPagename} />
+              }
+            />
 
-              {/* payment page */}
-              <Route
-                path="/Payment"
-                element={
-                  <Payment
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
+            {/* support page */}
+            <Route
+              path="/Support"
+              element={
+                <Support setProgress={setProgress} setPagename={setPagename} />
+              }
+            />
 
-              {/* support page */}
-              <Route
-                path="/Support"
-                element={
-                  <Support
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
-
-              {/* 404 -- not found page */}
-              <Route
-                path="*"
-                element={
-                  <NotFound
-                    setProgress={setProgress}
-                    setPagename={setPagename}
-                  />
-                }
-              />
-            </Routes>
-          </div>
+            {/* 404 -- not found page */}
+            <Route
+              path="*"
+              element={
+                <NotFound setProgress={setProgress} setPagename={setPagename} />
+              }
+            />
+          </Routes>
         </div>
       </div>
-    </Router>
+    </div>
   );
 };
 
