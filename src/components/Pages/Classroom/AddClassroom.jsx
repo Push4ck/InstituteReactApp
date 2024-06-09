@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"; // prop type
-import React, { useEffect, useState } from "react"; // react hooks
+import { useEffect, useState } from "react"; // react hooks
 import MainImg from "../../../assets/Classroom/AddClassroomForm.svg"; // form image
 // popups
 import ErrorPopup from "../../validation/ErrorPopup"; // error popup
-import SuccessPopup from "../../validation/SuccessPopup"; // success popup
+// import SuccessPopup from "../../validation/SuccessPopup"; // success popup
+import AddConfirmPopup from "../../validation/AddConfirmPopup"; // add confirm popup
 import InstituteSoft from "../../ApiEndPoints/InstituteSoft"; // api's endpoint
 import axios from "axios"; // axios (get : post)
 
@@ -33,12 +34,13 @@ const AddClassroom = ({ setProgress, setPagename }) => {
     ClassRoomName: "",
     Class: "8th",
     ClassRoomType: "Online",
-    Price: 0,
+    Price: "",
   });
 
   // initially hidden
   const [showErrorPopup, setShowErrorPopup] = useState(false);
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  // const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showAddConfirmPopup, setShowAddConfirmPopup] = useState(false);
 
   // class api (dropdown)
   const getActiveClass = () => {
@@ -80,16 +82,15 @@ const AddClassroom = ({ setProgress, setPagename }) => {
     axios
       .post(
         InstituteSoft.BaseURL + InstituteSoft.ClassRoom.SetClassRoom,
-        dataSet // api's endpoint
-      )
+        dataSet
+      ) // api's endpoint
       .then((response) => {
         console.log(response.data);
-        setShowSuccessPopup(true);
+        // setShowSuccessPopup(true);
+        setShowAddConfirmPopup(true);
       })
       .catch((error) => {
-        console.error(
-          error.response ? error.response.data : error.message // prints error message or error data came from api
-        );
+        console.error(error.response ? error.response.data : error.message); // prints error message or error data came from api
       });
   };
 
@@ -101,22 +102,26 @@ const AddClassroom = ({ setProgress, setPagename }) => {
       [name]: value,
     }));
     setShowErrorPopup(false);
-    setShowSuccessPopup(false);
+    // setShowSuccessPopup(false);
+    setShowAddConfirmPopup(false);
   };
 
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      !data.ClassRoomName ||
-      !data.Class ||
-      !data.ClassRoomType ||
-      data.Price < 0 ||
-      !data.Price
+      data.ClassRoomName != "" &&
+      data.Class != "" &&
+      data.ClassRoomType != "" &&
+      data.Price < 0 &&
+      data.Price != ""
     ) {
       setShowErrorPopup(true);
+      // setShowAddConfirmPopup(false);
+      // showMessage("Failed to add ClassRoom."); // toastify error message
     } else {
       setClassRoomData();
+      // setShowAddConfirmPopup(true);
     }
   };
 
@@ -166,21 +171,21 @@ const AddClassroom = ({ setProgress, setPagename }) => {
               {/* class */}
               <div>
                 <label className="form-label dark:text-white">Class</label>
+
+                {/* select class */}
                 <select
-                  className="form-select cursor-pointer"
                   name="Class"
+                  className="form-select cursor-pointer"
                   value={data.Class}
                   onChange={handleInputChange}
                 >
+                  {/* class options */}
                   {activeClass.map((Class) => (
                     <option value={Class.className} key={Class.classId}>
                       {Class.className}
                     </option>
                   ))}
                 </select>
-                <div className="invalid-feedback">
-                  Please select a valid class.
-                </div>
               </div>
 
               {/* classroom type */}
@@ -188,12 +193,15 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                 <label className="form-label dark:text-white">
                   ClassRoom Type
                 </label>
+
+                {/* select class type */}
                 <select
                   className="form-select cursor-pointer"
                   name="ClassRoomType"
                   value={data.ClassRoomType}
                   onChange={handleInputChange}
                 >
+                  {/* class type options */}
                   {activeClassRoomType.map((Class) => (
                     <option
                       value={Class.classRoomTypeName}
@@ -203,9 +211,6 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     </option>
                   ))}
                 </select>
-                <div className="invalid-feedback">
-                  Please select a valid type.
-                </div>
               </div>
 
               {/* price */}
@@ -222,7 +227,6 @@ const AddClassroom = ({ setProgress, setPagename }) => {
                     priceVal.includes(e.key) && e.preventDefault()
                   }
                   placeholder="0"
-                  required
                 />
               </div>
 
@@ -252,7 +256,8 @@ const AddClassroom = ({ setProgress, setPagename }) => {
 
       {/* error & success popup */}
       {showErrorPopup && <ErrorPopup />}
-      {showSuccessPopup && <SuccessPopup />}
+      {showAddConfirmPopup && <AddConfirmPopup onConfirm={setClassRoomData} />}
+      {/* {SuccessPopup && <AddConfirmPopup />} */}
     </div>
   );
 };
